@@ -1,10 +1,11 @@
 function changeArray(arr2){
 
-    arr2.push(2);
+    // arr2.push(2);
+    arr2 = [...arr2,10];
 
     console.log("arr2 inside the function ");
     console.log(arr2);
-
+    
 }
 
 
