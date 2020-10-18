@@ -626,3 +626,65 @@ function splitify(str) {
   }
   console.log(countup(5));
   
+
+  //swapping the variable values using the array destructuring
+  let a = 8, b = 6;
+// Only change code below this line
+
+[a,b] = [b,a];
+
+console.log(`a : ${a} and b : ${b}`);
+
+
+const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, c); // 1, 2, 5
+
+
+const source = [1,2,3,4,5,6,7,8,9,10];
+function removeFirstTwo(list) {
+  "use strict";
+  // Only change code below this line
+  const [a,b,...arr]= list; // Change this line
+  // Only change code above this line
+  return arr;
+}
+const arr = removeFirstTwo(source);
+
+//object short hand property
+
+const createPerson = (name, age, gender) => {
+  "use strict";
+  // Only change code below this line
+  return ({name,age,gender});
+
+  //it return by assigning name to name(parameter) and returns the object
+  // Only change code above this line
+};
+
+console.log(createPerson("ethan",25,"male"));
+
+//we dont need to write the function keyword if we are writing functions inside an object
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    this.gear = newGear;
+  }
+};
+// Only change code above this line
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+
+//class in javascript
+class Vegetable{
+  constructor(name){
+    this.name= name;
+  }
+
+}
+// Only change code above this line
+
+const carrot = new Vegetable('carrot');
+console.log(carrot.name); // Should display 'carrot'
+
+
