@@ -805,15 +805,6 @@ criteriaObj.setStatusRecommendations(rs.getString(""));
   
   ]
 
-<<<<<<< HEAD
-  if(processType != "" && processType=="processPIPExcel"){
-    processPIPExcel(data);
-  }else if(processType != "" && processType=="processCAPExcel"){
-    processCapExcel(data);
-  }else if(processType != "" && processType=="processERCExcel"){
-    processERCExcel(data);
-  }
-=======
   function countup(n) {
     if (n < 1) {
       return [];
@@ -887,4 +878,3 @@ const carrot = new Vegetable('carrot');
 console.log(carrot.name); // Should display 'carrot'
 
 
->>>>>>> dfefc983079c6b6a8ebb1df270de5c371daa9574
