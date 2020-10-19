@@ -1,62 +1,62 @@
-function changeArray(arr2){
+function changeArray(arr2) {
 
-    arr2.push(2);
+  arr2.push(2);
 
-    console.log("arr2 inside the function ");
-    console.log(arr2);
+  console.log("arr2 inside the function ");
+  console.log(arr2);
 
 }
 // Setup
 var contacts = [
   {
-      "firstName": "Akira",
-      "lastName": "Laine",
-      "number": "0543236543",
-      "likes": ["Pizza", "Coding", "Brownie Points"]
+    "firstName": "Akira",
+    "lastName": "Laine",
+    "number": "0543236543",
+    "likes": ["Pizza", "Coding", "Brownie Points"]
   },
   {
-      "firstName": "Harry",
-      "lastName": "Potter",
-      "number": "0994372684",
-      "likes": ["Hogwarts", "Magic", "Hagrid"]
+    "firstName": "Harry",
+    "lastName": "Potter",
+    "number": "0994372684",
+    "likes": ["Hogwarts", "Magic", "Hagrid"]
   },
   {
-      "firstName": "Sherlock",
-      "lastName": "Holmes",
-      "number": "0487345643",
-      "likes": ["Intriguing Cases", "Violin"]
+    "firstName": "Sherlock",
+    "lastName": "Holmes",
+    "number": "0487345643",
+    "likes": ["Intriguing Cases", "Violin"]
   },
   {
-      "firstName": "Kristian",
-      "lastName": "Vos",
-      "number": "unknown",
-      "likes": ["JavaScript", "Gaming", "Foxes"]
+    "firstName": "Kristian",
+    "lastName": "Vos",
+    "number": "unknown",
+    "likes": ["JavaScript", "Gaming", "Foxes"]
   }
 ];
 
 
-function lookUpProfile(name, prop){
-// Only change code below this line
+function lookUpProfile(name, prop) {
+  // Only change code below this line
 
-  for(let i = 0; i< contacts.length; i++){
-      if(contacts[i].firstName == name){
-          if(contacts[i].hasOwnProperty(prop)){
-              return contacts[i][prop];
-          }else{
-              return "No such property";
-          }
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i].firstName == name) {
+      if (contacts[i].hasOwnProperty(prop)) {
+        return contacts[i][prop];
+      } else {
+        return "No such property";
       }
-      
-  }
-              return "No such contact";
+    }
 
-// Only change code above this line
+  }
+  return "No such contact";
+
+  // Only change code above this line
 }
 
 lookUpProfile("Akira", "likes");
 
 
-let arr = [1,2,3,4,5];
+let arr = [1, 2, 3, 4, 5];
 console.log("arr before calling the function ");
 console.log(arr);
 changeArray(arr);
@@ -66,25 +66,25 @@ console.log("arr outside the function");
 
 console.log(arr);
 
-function addingArray(bookArr, bookName){
+function addingArray(bookArr, bookName) {
 
-    bookArr = [...bookArr, bookName];
+  bookArr = [...bookArr, bookName];
 }
 
-function removeBook(bookArr, book){
+function removeBook(bookArr, book) {
 
-    bookArr = bookArr.filter( item => item != book);
+  bookArr = bookArr.filter(item => item != book);
 
-    // bookArr = bookArr.filter(() => {
+  // bookArr = bookArr.filter(() => {
 
-    // })
+  // })
 
-    return bookArr;
+  return bookArr;
 
 }
 let books = ["book1", "book2", "book3"];
 console.log("books before removing" + books);
-let removedBook = removeBook(books,'book2');
+let removedBook = removeBook(books, 'book2');
 
 console.log("The removed book would be ");
 console.log(removedBook);
@@ -95,133 +95,134 @@ console.log(books);
 
 // The global variable
 var watchList = [
-    {
-      "Title": "Inception",
-      "Year": "2010",
-      "Rated": "PG-13",
-      "Released": "16 Jul 2010",
-      "Runtime": "148 min",
-      "Genre": "Action, Adventure, Crime",
-      "Director": "Christopher Nolan",
-      "Writer": "Christopher Nolan",
-      "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy",
-      "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
-      "Language": "English, Japanese, French",
-      "Country": "USA, UK",
-      "Awards": "Won 4 Oscars. Another 143 wins & 198 nominations.",
-      "Poster": "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
-      "Metascore": "74",
-      "imdbRating": "8.8",
-      "imdbVotes": "1,446,708",
-      "imdbID": "tt1375666",
-      "Type": "movie",
-      "Response": "True"
-    },
-    {
-      "Title": "Interstellar",
-      "Year": "2014",
-      "Rated": "PG-13",
-      "Released": "07 Nov 2014",
-      "Runtime": "169 min",
-      "Genre": "Adventure, Drama, Sci-Fi",
-      "Director": "Christopher Nolan",
-      "Writer": "Jonathan Nolan, Christopher Nolan",
-      "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
-      "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-      "Language": "English",
-      "Country": "USA, UK",
-      "Awards": "Won 1 Oscar. Another 39 wins & 132 nominations.",
-      "Poster": "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
-      "Metascore": "74",
-      "imdbRating": "8.6",
-      "imdbVotes": "910,366",
-      "imdbID": "tt0816692",
-      "Type": "movie",
-      "Response": "True"
-    },
-    {
-      "Title": "The Dark Knight",
-      "Year": "2008",
-      "Rated": "PG-13",
-      "Released": "18 Jul 2008",
-      "Runtime": "152 min",
-      "Genre": "Action, Adventure, Crime",
-      "Director": "Christopher Nolan",
-      "Writer": "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
-      "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
-      "Plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",
-      "Language": "English, Mandarin",
-      "Country": "USA, UK",
-      "Awards": "Won 2 Oscars. Another 146 wins & 142 nominations.",
-      "Poster": "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
-      "Metascore": "82",
-      "imdbRating": "9.0",
-      "imdbVotes": "1,652,832",
-      "imdbID": "tt0468569",
-      "Type": "movie",
-      "Response": "True"
-    },
-    {
-      "Title": "Batman Begins",
-      "Year": "2005",
-      "Rated": "PG-13",
-      "Released": "15 Jun 2005",
-      "Runtime": "140 min",
-      "Genre": "Action, Adventure",
-      "Director": "Christopher Nolan",
-      "Writer": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
-      "Actors": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
-      "Plot": "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.",
-      "Language": "English, Urdu, Mandarin",
-      "Country": "USA, UK",
-      "Awards": "Nominated for 1 Oscar. Another 15 wins & 66 nominations.",
-      "Poster": "http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg",
-      "Metascore": "70",
-      "imdbRating": "8.3",
-      "imdbVotes": "972,584",
-      "imdbID": "tt0372784",
-      "Type": "movie",
-      "Response": "True"
-    },
-    {
-      "Title": "Avatar",
-      "Year": "2009",
-      "Rated": "PG-13",
-      "Released": "18 Dec 2009",
-      "Runtime": "162 min",
-      "Genre": "Action, Adventure, Fantasy",
-      "Director": "James Cameron",
-      "Writer": "James Cameron",
-      "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
-      "Plot": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
-      "Language": "English, Spanish",
-      "Country": "USA, UK",
-      "Awards": "Won 3 Oscars. Another 80 wins & 121 nominations.",
-      "Poster": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
-      "Metascore": "83",
-      "imdbRating": "7.9",
-      "imdbVotes": "876,575",
-      "imdbID": "tt0499549",
-      "Type": "movie",
-      "Response": "True"
-    }
-  ];
-  
-  // Only change code below this line
-  
-  
-  
-  var ratings = watchList.map((item) => {
-  
-    return {title  : item.Title,
-              rating : item.imdbRating
-            }
-  
-  });
-  
-  var s = [23, 65, 98, 5];
+  {
+    "Title": "Inception",
+    "Year": "2010",
+    "Rated": "PG-13",
+    "Released": "16 Jul 2010",
+    "Runtime": "148 min",
+    "Genre": "Action, Adventure, Crime",
+    "Director": "Christopher Nolan",
+    "Writer": "Christopher Nolan",
+    "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy",
+    "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+    "Language": "English, Japanese, French",
+    "Country": "USA, UK",
+    "Awards": "Won 4 Oscars. Another 143 wins & 198 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+    "Metascore": "74",
+    "imdbRating": "8.8",
+    "imdbVotes": "1,446,708",
+    "imdbID": "tt1375666",
+    "Type": "movie",
+    "Response": "True"
+  },
+  {
+    "Title": "Interstellar",
+    "Year": "2014",
+    "Rated": "PG-13",
+    "Released": "07 Nov 2014",
+    "Runtime": "169 min",
+    "Genre": "Adventure, Drama, Sci-Fi",
+    "Director": "Christopher Nolan",
+    "Writer": "Jonathan Nolan, Christopher Nolan",
+    "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+    "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "Language": "English",
+    "Country": "USA, UK",
+    "Awards": "Won 1 Oscar. Another 39 wins & 132 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
+    "Metascore": "74",
+    "imdbRating": "8.6",
+    "imdbVotes": "910,366",
+    "imdbID": "tt0816692",
+    "Type": "movie",
+    "Response": "True"
+  },
+  {
+    "Title": "The Dark Knight",
+    "Year": "2008",
+    "Rated": "PG-13",
+    "Released": "18 Jul 2008",
+    "Runtime": "152 min",
+    "Genre": "Action, Adventure, Crime",
+    "Director": "Christopher Nolan",
+    "Writer": "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
+    "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
+    "Plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",
+    "Language": "English, Mandarin",
+    "Country": "USA, UK",
+    "Awards": "Won 2 Oscars. Another 146 wins & 142 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+    "Metascore": "82",
+    "imdbRating": "9.0",
+    "imdbVotes": "1,652,832",
+    "imdbID": "tt0468569",
+    "Type": "movie",
+    "Response": "True"
+  },
+  {
+    "Title": "Batman Begins",
+    "Year": "2005",
+    "Rated": "PG-13",
+    "Released": "15 Jun 2005",
+    "Runtime": "140 min",
+    "Genre": "Action, Adventure",
+    "Director": "Christopher Nolan",
+    "Writer": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
+    "Actors": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
+    "Plot": "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.",
+    "Language": "English, Urdu, Mandarin",
+    "Country": "USA, UK",
+    "Awards": "Nominated for 1 Oscar. Another 15 wins & 66 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg",
+    "Metascore": "70",
+    "imdbRating": "8.3",
+    "imdbVotes": "972,584",
+    "imdbID": "tt0372784",
+    "Type": "movie",
+    "Response": "True"
+  },
+  {
+    "Title": "Avatar",
+    "Year": "2009",
+    "Rated": "PG-13",
+    "Released": "18 Dec 2009",
+    "Runtime": "162 min",
+    "Genre": "Action, Adventure, Fantasy",
+    "Director": "James Cameron",
+    "Writer": "James Cameron",
+    "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
+    "Plot": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+    "Language": "English, Spanish",
+    "Country": "USA, UK",
+    "Awards": "Won 3 Oscars. Another 80 wins & 121 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
+    "Metascore": "83",
+    "imdbRating": "7.9",
+    "imdbVotes": "876,575",
+    "imdbID": "tt0499549",
+    "Type": "movie",
+    "Response": "True"
+  }
+];
 
-Array.prototype.myMap = function(callback){
+// Only change code below this line
+
+
+
+var ratings = watchList.map((item) => {
+
+  return {
+    title: item.Title,
+    rating: item.imdbRating
+  }
+
+});
+
+var s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function (callback) {
   var newArray = [];
   // Only change code below this line
   this.forEach((item) => {
@@ -232,33 +233,33 @@ Array.prototype.myMap = function(callback){
 
 };
 
-var new_s = s.myMap(function(item){
+var new_s = s.myMap(function (item) {
   return item * 2;
 });
 
 
 // ------------------------------filter and map-------------------------------
-var filteredList = watchList.filter(item => parseFloat(item.imdbRating)>= 8.0);
+var filteredList = watchList.filter(item => parseFloat(item.imdbRating) >= 8.0);
 filteredList = filteredList.map((item) => {
   return {
-    title : item.Title,
-    rating : item.imdbRating
+    title: item.Title,
+    rating: item.imdbRating
   }
 });
-  console.log(filteredList);
-  console.log(watchList);
+console.log(filteredList);
+console.log(watchList);
 
 
 
-  // writing the Array.prototype.filter kind of our own filter function 
-  // The global variable
+// writing the Array.prototype.filter kind of our own filter function 
+// The global variable
 var t = [23, 65, 98, 5];
 
-Array.prototype.myFilter = function(callback){
+Array.prototype.myFilter = function (callback) {
   // Only change code below this line
   var newArray = [];
   this.forEach((item) => {
-    if(callback(item)){
+    if (callback(item)) {
       newArray.push(item);
 
     }
@@ -269,7 +270,7 @@ Array.prototype.myFilter = function(callback){
 
 };
 
-var new_s = t.myFilter(function(item){
+var new_s = t.myFilter(function (item) {
   return item % 2 === 1;
 });
 
@@ -284,23 +285,23 @@ var new_s = t.myFilter(function(item){
 //   original array, but returns a new one.
 
 function sliceArray(anim, beginSlice, endSlice) {
-    // Only change code below this line
-  
-    return anim.slice(beginSlice, endSlice);
-  
-    // Only change code above this line
-  }
-  var inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
-  sliceArray(inputAnim, 1, 3);
+  // Only change code below this line
 
-  function nonMutatingSplice(cities) {
-    // Only change code below this line
-    return cities.slice(0,3);
-  
-    // Only change code above this line
-  }
-  var inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
-  console.log(nonMutatingSplice(inputCities));
+  return anim.slice(beginSlice, endSlice);
+
+  // Only change code above this line
+}
+var inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+sliceArray(inputAnim, 1, 3);
+
+function nonMutatingSplice(cities) {
+  // Only change code below this line
+  return cities.slice(0, 3);
+
+  // Only change code above this line
+}
+var inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+console.log(nonMutatingSplice(inputCities));
 
 
 //----------------------------------------------------------- Array concatenation---------------------------------------------------------
@@ -309,185 +310,185 @@ function sliceArray(anim, beginSlice, endSlice) {
 //   It returns a new array and does not mutate either of the original arrays. Here's an example:
 
 function nonMutatingConcat(original, attach) {
-    // Only change code below this line
-  
-    return first.concat(second);
-    // Only change code above this line
-  }
-  var first = [1, 2, 3];
-  var second = [4, 5];
-  nonMutatingConcat(first, second);
-  
+  // Only change code below this line
 
-  //-------------------reduce method---------------------------
+  return first.concat(second);
+  // Only change code above this line
+}
+var first = [1, 2, 3];
+var second = [4, 5];
+nonMutatingConcat(first, second);
 
-    // The global variable
+
+//-------------------reduce method---------------------------
+
+// The global variable
 var watchList = [
-    {
-      "Title": "Inception",
-      "Year": "2010",
-      "Rated": "PG-13",
-      "Released": "16 Jul 2010",
-      "Runtime": "148 min",
-      "Genre": "Action, Adventure, Crime",
-      "Director": "Christopher Nolan",
-      "Writer": "Christopher Nolan",
-      "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy",
-      "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
-      "Language": "English, Japanese, French",
-      "Country": "USA, UK",
-      "Awards": "Won 4 Oscars. Another 143 wins & 198 nominations.",
-      "Poster": "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
-      "Metascore": "74",
-      "imdbRating": "8.8",
-      "imdbVotes": "1,446,708",
-      "imdbID": "tt1375666",
-      "Type": "movie",
-      "Response": "True"
-    },
-    {
-      "Title": "Interstellar",
-      "Year": "2014",
-      "Rated": "PG-13",
-      "Released": "07 Nov 2014",
-      "Runtime": "169 min",
-      "Genre": "Adventure, Drama, Sci-Fi",
-      "Director": "Christopher Nolan",
-      "Writer": "Jonathan Nolan, Christopher Nolan",
-      "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
-      "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-      "Language": "English",
-      "Country": "USA, UK",
-      "Awards": "Won 1 Oscar. Another 39 wins & 132 nominations.",
-      "Poster": "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
-      "Metascore": "74",
-      "imdbRating": "8.6",
-      "imdbVotes": "910,366",
-      "imdbID": "tt0816692",
-      "Type": "movie",
-      "Response": "True"
-    },
-    {
-      "Title": "The Dark Knight",
-      "Year": "2008",
-      "Rated": "PG-13",
-      "Released": "18 Jul 2008",
-      "Runtime": "152 min",
-      "Genre": "Action, Adventure, Crime",
-      "Director": "Christopher Nolan",
-      "Writer": "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
-      "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
-      "Plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",
-      "Language": "English, Mandarin",
-      "Country": "USA, UK",
-      "Awards": "Won 2 Oscars. Another 146 wins & 142 nominations.",
-      "Poster": "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
-      "Metascore": "82",
-      "imdbRating": "9.0",
-      "imdbVotes": "1,652,832",
-      "imdbID": "tt0468569",
-      "Type": "movie",
-      "Response": "True"
-    },
-    {
-      "Title": "Batman Begins",
-      "Year": "2005",
-      "Rated": "PG-13",
-      "Released": "15 Jun 2005",
-      "Runtime": "140 min",
-      "Genre": "Action, Adventure",
-      "Director": "Christopher Nolan",
-      "Writer": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
-      "Actors": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
-      "Plot": "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.",
-      "Language": "English, Urdu, Mandarin",
-      "Country": "USA, UK",
-      "Awards": "Nominated for 1 Oscar. Another 15 wins & 66 nominations.",
-      "Poster": "http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg",
-      "Metascore": "70",
-      "imdbRating": "8.3",
-      "imdbVotes": "972,584",
-      "imdbID": "tt0372784",
-      "Type": "movie",
-      "Response": "True"
-    },
-    {
-      "Title": "Avatar",
-      "Year": "2009",
-      "Rated": "PG-13",
-      "Released": "18 Dec 2009",
-      "Runtime": "162 min",
-      "Genre": "Action, Adventure, Fantasy",
-      "Director": "James Cameron",
-      "Writer": "James Cameron",
-      "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
-      "Plot": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
-      "Language": "English, Spanish",
-      "Country": "USA, UK",
-      "Awards": "Won 3 Oscars. Another 80 wins & 121 nominations.",
-      "Poster": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
-      "Metascore": "83",
-      "imdbRating": "7.9",
-      "imdbVotes": "876,575",
-      "imdbID": "tt0499549",
-      "Type": "movie",
-      "Response": "True"
-    }
-  ];
-  
-  function getRating(watchList){
-    // Only change code below this line
-    var averageRating;
-    let movies = watchList.filter( item => item.Director === "Christopher Nolan");
-  
-    movies = movies.map((item) => {
-      return {
-        title : item.Title,
-        director : item.Director,
-        rating : item.imdbRating
-      }
-    });
-      console.log(movies);
-  
-  
-    averageRating = movies.reduce((avg, movie) => avg+parseFloat(movie.rating)/movies.length,0 )
-  
-  
-    // Only change code above this line
-    return averageRating;
+  {
+    "Title": "Inception",
+    "Year": "2010",
+    "Rated": "PG-13",
+    "Released": "16 Jul 2010",
+    "Runtime": "148 min",
+    "Genre": "Action, Adventure, Crime",
+    "Director": "Christopher Nolan",
+    "Writer": "Christopher Nolan",
+    "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy",
+    "Plot": "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
+    "Language": "English, Japanese, French",
+    "Country": "USA, UK",
+    "Awards": "Won 4 Oscars. Another 143 wins & 198 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+    "Metascore": "74",
+    "imdbRating": "8.8",
+    "imdbVotes": "1,446,708",
+    "imdbID": "tt1375666",
+    "Type": "movie",
+    "Response": "True"
+  },
+  {
+    "Title": "Interstellar",
+    "Year": "2014",
+    "Rated": "PG-13",
+    "Released": "07 Nov 2014",
+    "Runtime": "169 min",
+    "Genre": "Adventure, Drama, Sci-Fi",
+    "Director": "Christopher Nolan",
+    "Writer": "Jonathan Nolan, Christopher Nolan",
+    "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+    "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "Language": "English",
+    "Country": "USA, UK",
+    "Awards": "Won 1 Oscar. Another 39 wins & 132 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
+    "Metascore": "74",
+    "imdbRating": "8.6",
+    "imdbVotes": "910,366",
+    "imdbID": "tt0816692",
+    "Type": "movie",
+    "Response": "True"
+  },
+  {
+    "Title": "The Dark Knight",
+    "Year": "2008",
+    "Rated": "PG-13",
+    "Released": "18 Jul 2008",
+    "Runtime": "152 min",
+    "Genre": "Action, Adventure, Crime",
+    "Director": "Christopher Nolan",
+    "Writer": "Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)",
+    "Actors": "Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine",
+    "Plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.",
+    "Language": "English, Mandarin",
+    "Country": "USA, UK",
+    "Awards": "Won 2 Oscars. Another 146 wins & 142 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+    "Metascore": "82",
+    "imdbRating": "9.0",
+    "imdbVotes": "1,652,832",
+    "imdbID": "tt0468569",
+    "Type": "movie",
+    "Response": "True"
+  },
+  {
+    "Title": "Batman Begins",
+    "Year": "2005",
+    "Rated": "PG-13",
+    "Released": "15 Jun 2005",
+    "Runtime": "140 min",
+    "Genre": "Action, Adventure",
+    "Director": "Christopher Nolan",
+    "Writer": "Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)",
+    "Actors": "Christian Bale, Michael Caine, Liam Neeson, Katie Holmes",
+    "Plot": "After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.",
+    "Language": "English, Urdu, Mandarin",
+    "Country": "USA, UK",
+    "Awards": "Nominated for 1 Oscar. Another 15 wins & 66 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg",
+    "Metascore": "70",
+    "imdbRating": "8.3",
+    "imdbVotes": "972,584",
+    "imdbID": "tt0372784",
+    "Type": "movie",
+    "Response": "True"
+  },
+  {
+    "Title": "Avatar",
+    "Year": "2009",
+    "Rated": "PG-13",
+    "Released": "18 Dec 2009",
+    "Runtime": "162 min",
+    "Genre": "Action, Adventure, Fantasy",
+    "Director": "James Cameron",
+    "Writer": "James Cameron",
+    "Actors": "Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang",
+    "Plot": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+    "Language": "English, Spanish",
+    "Country": "USA, UK",
+    "Awards": "Won 3 Oscars. Another 80 wins & 121 nominations.",
+    "Poster": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
+    "Metascore": "83",
+    "imdbRating": "7.9",
+    "imdbVotes": "876,575",
+    "imdbID": "tt0499549",
+    "Type": "movie",
+    "Response": "True"
   }
-  console.log(getRating(watchList));
+];
 
-  
-  const users = [
-    { name: 'John', age: 34 },
-    { name: 'Amy', age: 20 },
-    { name: 'camperCat', age: 10 }
-  ];
-  
-  const usersObj = users.reduce((obj, user) => {
-    obj[user.name] = user.age;
-    return obj;
-  }, {});
-  console.log(usersObj); // { John: 34, Amy: 20, camperCat: 10 }
+function getRating(watchList) {
+  // Only change code below this line
+  var averageRating;
+  let movies = watchList.filter(item => item.Director === "Christopher Nolan");
+
+  movies = movies.map((item) => {
+    return {
+      title: item.Title,
+      director: item.Director,
+      rating: item.imdbRating
+    }
+  });
+  console.log(movies);
+
+
+  averageRating = movies.reduce((avg, movie) => avg + parseFloat(movie.rating) / movies.length, 0)
+
+
+  // Only change code above this line
+  return averageRating;
+}
+console.log(getRating(watchList));
+
+
+const users = [
+  { name: 'John', age: 34 },
+  { name: 'Amy', age: 20 },
+  { name: 'camperCat', age: 10 }
+];
+
+const usersObj = users.reduce((obj, user) => {
+  obj[user.name] = user.age;
+  return obj;
+}, {});
+console.log(usersObj); // { John: 34, Amy: 20, camperCat: 10 }
 
 
 //problem to solve with map filter and reduce
-  const squareList = (arr) => {
-    // Only change code below this line
-  
-    arr = arr.filter( item => (item == parseInt(item) && item>0)).map((item) => item*item);
-  
-    return arr;
-    // Only change code above this line
-  };
-  
-  const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
-  console.log(squaredIntegers);
+const squareList = (arr) => {
+  // Only change code below this line
+
+  arr = arr.filter(item => (item == parseInt(item) && item > 0)).map((item) => item * item);
+
+  return arr;
+  // Only change code above this line
+};
+
+const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+console.log(squaredIntegers);
 
 
 
-  //sorting method
+//sorting method
 //   JavaScript's default sorting method is by string Unicode point value, which may return unexpected results. 
 //   Therefore, it is encouraged to provide a callback function to specify how to sort the array items.
 //    When such a callback function, normally called compareFunction, is supplied, the array elements are sorted according 
@@ -496,35 +497,35 @@ var watchList = [
 //    If compareFunction(a,b) returns a value equal to 0 for two elements a and b, then a and b will remain unchanged.
 
 
-  //sorting charecters
-  function alphabeticalOrder(arr) {
-    // Only change code below this line
-  
-    return arr.sort(function(a, b) {
-      return a === b ? 0 : a < b ? -1 : 1;
-    });
-    // Only change code above this line
-  }
-  console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
+//sorting charecters
+function alphabeticalOrder(arr) {
+  // Only change code below this line
+
+  return arr.sort(function (a, b) {
+    return a === b ? 0 : a < b ? -1 : 1;
+  });
+  // Only change code above this line
+}
+console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
 //sorting number using the sort method
 function ascendingOrder(arr) {
-    return arr.sort(function(a, b) {
-      return a - b;
-    });
-  }
- console.log(ascendingOrder([1, 5, 2, 3, 4]));
+  return arr.sort(function (a, b) {
+    return a - b;
+  });
+}
+console.log(ascendingOrder([1, 5, 2, 3, 4]));
 
 
 
- //sorting number array task
- var globalArray = [5, 6, 3, 2, 9];
+//sorting number array task
+var globalArray = [5, 6, 3, 2, 9];
 function nonMutatingSort(arr) {
   // Only change code below this line
 
   let tempArr = arr.slice();
   console.log(tempArr);
 
-  tempArr.sort((a,b) => {
+  tempArr.sort((a, b) => {
 
     return a - b;
   });
@@ -538,90 +539,267 @@ nonMutatingSort(globalArray);
 
 // spliting an array with regular expression since stringa are immutable split makes it so easy
 function splitify(str) {
-    // Only change code below this line
-  
-    console.log(str.split(/\W/));
-    console.log(str);
-    return str.split(/\W/);
-    // Only change code above this line
-  }
-  splitify("Hello World,I-am code");
+  // Only change code below this line
+
+  console.log(str.split(/\W/));
+  console.log(str);
+  return str.split(/\W/);
+  // Only change code above this line
+}
+splitify("Hello World,I-am code");
 
 
-  //making a string into an array and then joining them with spaces as a string
-  function sentensify(str) {
-    // Only change code below this line
-  
-    return str.split(/\W/).join(" ");
-    // Only change code above this line
-  }
-  sentensify("May-the-force-be-with-you");
+//making a string into an array and then joining them with spaces as a string
+function sentensify(str) {
+  // Only change code below this line
+
+  return str.split(/\W/).join(" ");
+  // Only change code above this line
+}
+sentensify("May-the-force-be-with-you");
 
 // every method checks if every element in the array follows the conditions and return booledan true or false
-  function checkPositive(arr) {
-    // Only change code below this line
-  
-    return arr.every( (item) => {
-      return item>=0
-      });
-    // Only change code above this line
-  }
-  checkPositive([1, 2, 3, -4, 5]);
-  
-  
-  //another positivity test
-  function checkPositive(arr) {
-    // Only change code below this line
-  
-  return arr.some((currentValue) =>  currentValue >= 0);
-    // Only change code above this line
-  }
-  console.log(checkPositive([1, 2, 3, -4, 5]));
+function checkPositive(arr) {
+  // Only change code below this line
+
+  return arr.every((item) => {
+    return item >= 0
+  });
+  // Only change code above this line
+}
+checkPositive([1, 2, 3, -4, 5]);
+
+
+//another positivity test
+function checkPositive(arr) {
+  // Only change code below this line
+
+  return arr.some((currentValue) => currentValue >= 0);
+  // Only change code above this line
+}
+console.log(checkPositive([1, 2, 3, -4, 5]));
 
 // summ of ranges in  
-  function sumAll(arr) {
+function sumAll(arr) {
 
-    let sum = 0;
-    let min  = arr[0];
-    let max = arr[1];
-  
-  
-    for(let i = Math.min(...arr); i<= Math.max(...arr); i++){
-      sum += i;
-    }
-    console.log(sum);
-    return sum;
+  let sum = 0;
+  let min = arr[0];
+  let max = arr[1];
+
+
+  for (let i = Math.min(...arr); i <= Math.max(...arr); i++) {
+    sum += i;
   }
-  
-  sumAll([1, 4]);
+  console.log(sum);
+  return sum;
+}
+
+sumAll([1, 4]);
 
 
 
-  function countdown(n){
-  
-    if(n <= 0)
+function countdown(n) {
+
+  if (n <= 0)
     return [];
-    else{
-  
-      
-      let arr = countdown(n-1);
-      arr.unshift(n);
-      
-      console.log(arr);
-      return arr;
-    }
+  else {
+
+
+    let arr = countdown(n - 1);
+    arr.unshift(n);
+
+    console.log(arr);
+    return arr;
   }
+}
 
 
 
-  function countup(n) {
-    if (n < 1) {
-      return [];
-    } else {
-      const countArray = countup(n - 1);
-      countArray.push(n);
-      return countArray;
-    }
+function countup(n) {
+  if (n < 1) {
+    return [];
+  } else {
+    const countArray = countup(n - 1);
+    countArray.push(n);
+    return countArray;
   }
-  console.log(countup(5));
+}
+console.log(countup(5));
   
+
+
+  public void setEmployeeCurrentPipStatus(String employeeCurrentPipStatus) {
+  this.employeeCurrentPipStatus = employeeCurrentPipStatus;
+}
+  
+  public void setEmployeeCurrentCapStatus(String employeeCurrectCapStatus) {
+  this.employeeCurrectCapStatus = employeeCurrectCapStatus;
+}
+  public void setEmployeeOverallShrinkageGoal(String employeeOverallShrinkageGoal) {
+  this.employeeOverallShrinkageGoal = employeeOverallShrinkageGoal;
+}
+  public void setOverallShrinkageAchieved(String overallShrinkageAchieved) {
+  this.overallShrinkageAchieved = overallShrinkageAchieved;
+}
+  public void setOverallShrinkageVariance(String overallShrinkageVariance) {
+  this.overallShrinkageVariance = overallShrinkageVariance;
+}
+  public void setOverallRapGoal(String overallRapGoal) {
+  this.overallRapGoal = overallRapGoal;
+}
+  public void setOverallRapAchieved(String overallRaoAchieved) {
+  this.overallRaoAchieved = overallRaoAchieved;
+}
+  public void setOverallRapVariance(String overallRapVariance) {
+  this.overallRapVariance = overallRapVariance;
+}
+  public void setOverallChtGoal(String overallChtgoal) {
+  this.overallChtgoal = overallChtgoal;
+}
+  public void setOverallChtAchieved(String overallChtAchieved) {
+  this.overallChtAchieved = overallChtAchieved;
+}
+  public void setOverallChtVariance(String overallChtVariance) {
+  this.overallChtVariance = overallChtVariance;
+}
+  
+  public void setTotalScore(String totalScore) {
+  this.totalScore = totalScore;
+}
+  public void setStatusRecommendations(String statusRecommendations) {
+  this.statusRecommendations = statusRecommendations;
+}
+
+criteriaObj.setEmployeeCurrentCapStatus(rs.getString(""));
+criteriaObj.setEmployeeOverallShrinkageGoal(rs.getString(""));
+criteriaObj.setOverallShrinkageAchieved(rs.getString(""));
+criteriaObj.setOverallShrinkageVariance(rs.getString(""));
+criteriaObj.setOverallRapGoal(rs.getString(""));
+criteriaObj.setOverallRapAchieved(rs.getString(""));
+criteriaObj.setOverallRapVariance(rs.getString(""));
+criteriaObj.setOverallChtGoal(rs.getString(""));
+criteriaObj.setOverallChtAchieved(rs.getString(""));
+criteriaObj.setOverallChtVariance(rs.getString(""));
+criteriaObj.setTotalScore(rs.getString(""));
+criteriaObj.setStatusRecommendations(rs.getString(""));
+
+
+
+<input type="checkbox" value="AU"
+  id="AU" /> & nbsp; AU
+</label > <br /> <label for="BR"> <input type="checkbox" value="BR"
+	id="BR" /> &nbsp; BR
+</label> <br /> <label for="CA"> <input type="checkbox" value="CA"
+	id="CA" /> &nbsp; CA
+</label> <br /> <label for="DE"> <input type="checkbox" value="DE"
+	id="DE" /> &nbsp; DE
+</label> <br /> <label for="ES"> <input type="checkbox" value="ES"
+	id="ES" /> &nbsp; ES
+</label> <br /> <label for="FR"> <input type="checkbox" value="FR"
+	id="FR" /> &nbsp; FR
+</label> <br /> <label for="IN"> <input type="checkbox" value="IN"
+	id="IN" /> &nbsp; IN
+</label> <br /> <label for="IT"> <input type="checkbox" value="IT"
+	id="IT" /> &nbsp; IT
+</label> <br /> <label for="JP"> <input type="checkbox" value="JP"
+	id="JP" /> &nbsp; JP
+</label> <br /> <label for="MX"> <input type="checkbox" value="MX"
+	id="MX" /> &nbsp; MX
+</label> <br /> <label for="SG"> <input type="checkbox" value="SG"
+	id="SG" /> &nbsp; SG
+</label> <br /> <label for="UK"> <input type="checkbox" value="UK"
+	id="UK" /> &nbsp; UK
+</label> <br /> <label for="US"> <input type="checkbox" value="US"
+	id="US" /> &nbsp; US
+
+
+
+ <input type="checkbox" value="CJB10" id="CJB10" />
+&nbsp; CJB10
+</label> <br /> <label for="DEL18"> <input type="checkbox" value="DEL18"
+	id="DEL18" /> &nbsp; DEL18
+</label> <br /> <label for="HYD20"> <input type="checkbox" value="HYD20"
+	id="HYD20" /> &nbsp; HYD20
+</label> <br /> <label for="PNQ10"> <input type="checkbox" value="PNQ10"
+	id="PNQ10" /> &nbsp; PNQ10
+</label> <br /> <label><strong>VCS</strong></label><br /> <label
+	for="VCSIND-CCU"> <input type="checkbox" value="VCSIND-CCU"
+	id="VCSIND-CCU" /> &nbsp; VCSIND-CCU
+</label> <br /> <label for="VCSIND-CJB"> <input
+	type="checkbox" value="VCSIND-CJB" id="VCSIND-CJB" /> &nbsp; VCSIND-CJB
+</label> <br /> <label for="VCSIND-DEL"> <input
+	type="checkbox" value="VCSIND-DEL" id="VCSIND-DEL" /> &nbsp; VCSIND-DEL
+</label> <br /> <label for="VCSIND-HYD"> <input
+	type="checkbox" value="VCSIND-HYD" id="VCSIND-HYD" /> &nbsp; VCSIND-HYD
+</label> <br /> <label for="VCSIND-IDR"> <input
+	type="checkbox" value="VCSIND-IDR" id="VCSIND-IDR" /> &nbsp; VCSIND-IDR
+</label> <br /> <label for="VCSIND-IXE"> <input
+	type="checkbox" value="VCSIND-IXE" id="VCSIND-IXE" /> &nbsp; VCSIND-IXE
+</label> <br /> <label for="VCSIND-JAI"> <input
+	type="checkbox" value="VCSIND-JAI" id="VCSIND-JAI" /> &nbsp; VCSIND-JAI
+</label> <br /> <label for="VCSIND-LKO"> <input
+	type="checkbox" value="VCSIND-LKO" id="VCSIND-LKO" /> &nbsp; VCSIND-LKO
+</label> <br /> <label for="VCSIND-PNQ"> <input
+	type="checkbox" value="VCSIND-PNQ" id="VCSIND-PNQ" /> &nbsp; VCSIND-PNQ
+</label> <br />
+
+
+[
+  
+     "Login Id",
+ 
+  
+     "Full Name",
+
+  
+     "Site",
+
+  
+  
+     "Manager Login",
+
+  
+     "Rehire Date",
+
+  
+     "Contract End Date",
+  
+  
+     "HiringOU",
+  
+  
+     "Current Cross Skill Status",
+  
+  
+     "Current PIP Status",
+  
+     "Current CAP Status",
+  
+  
+  
+     "Shrinkage variance",
+  
+  
+  
+     "RAP Variance",
+  
+
+  
+     "CHT Variance",
+  
+  
+     "Total Score",
+  
+  
+     "Status Recommendation",
+  
+  
+  ]
+
+  if(processType != "" && processType=="processPIPExcel"){
+    processPIPExcel(data);
+  }else if(processType != "" && processType=="processCAPExcel"){
+    processCapExcel(data);
+  }else if(processType != "" && processType=="processERCExcel"){
+    processERCExcel(data);
+  }
