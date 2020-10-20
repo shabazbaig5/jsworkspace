@@ -1,11 +1,11 @@
-import * as temp from './index.js';
+// import * as temp from './index.js';
 
 
-console.log(temp.temp);
+// console.log(temp.temp);
 
-let myString = "freeCodeCamp";
-let fccRegex = /change/; // Change this line
-// let result = fccRegex.test(myString);
+// let myString = "freeCodeCamp";
+// let fccRegex = /change/; // Change this line
+// // let result = fccRegex.test(myString);
 
 
 //adding i like /change/i can ignore the case while matching
@@ -271,33 +271,143 @@ function forecast(arr) {
   
   booWho(null);
 
-  function titleCase(str) {
-    str = str.split(" ");
-    console.log(str);
+  // function titleCase(str) {
+  //   str = str.split(" ");
+  //   console.log(str);
     
-    for(let i = 0;i<str.length; i++){
-       let strArr = str[i].split('');
-       console.log(strArr);
-       strArr[0] = strArr[0].toUpperCase();
-       console.log(strArr[0]);
-       strArr = strArr.join('');
+  //   for(let i = 0;i<str.length; i++){
+  //      let strArr = str[i].split('');
+  //      console.log(strArr);
+  //      strArr[0] = strArr[0].toUpperCase();
+  //      console.log(strArr[0]);
+  //      strArr = strArr.join('');
 
-       console.log("the words are");
-       console.log(strArr);
-    //    for(let j=0; j<strArr.length; j++){
-    //         if(j==0){
-    //             strArr[j]= strArr[j].toUpperCase();
-    //         }else{
-    //             strArr[j] = strArr[j].toLowerCase();
-    //         }
-    //         strArr = strArr.join('');
-    //    }
-    //    console.log(strArr);
-    }
-    str = str.join(" ");
-    console.log(str);
-    return str;
+  //      console.log("the words are");
+  //      console.log(strArr);
+  //   //    for(let j=0; j<strArr.length; j++){
+  //   //         if(j==0){
+  //   //             strArr[j]= strArr[j].toUpperCase();
+  //   //         }else{
+  //   //             strArr[j] = strArr[j].toLowerCase();
+  //   //         }
+  //   //         strArr = strArr.join('');
+  //   //    }
+  //   //    console.log(strArr);
+  //   }
+  //   str = str.join(" ");
+  //   console.log(str);
+  //   return str;
+  // }
+  
+  // titleCase("I'm a little tea pot");
+  
+  // console.log("Testing");
+
+
+
+  function titleCase(str) {
+    var convertToArray = str.toLowerCase().split(" ");
+    var result = convertToArray.map(function(val) {
+      return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+    });
+    return result.join(" ");
   }
   
   titleCase("I'm a little tea pot");
+
+  function frankenSplice(arr1, arr2, n) {
+    let tempArr = arr2.slice();
+    console.log(tempArr.splice(n,tempArr.length));
+    return tempArr.concat(arr1).concat(arr2.slice(n,arr2.length));
+    
+    
+  }
   
+  frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
+  function frankenSpliceDif(arr1, arr2, n) {
+    // let tempArr = arr2.slice();
+    // tempArr.splice(n,tempArr.length);
+    // return tempArr.concat(arr1).concat(arr2.slice(n,arr2.length));
+      let localArr = arr2.slice();
+    // localArr.splice(n, 0, ...arr1);
+    localArr.splice(n, 0,...arr1);
+    console.log(localArr);
+    return localArr;
+    
+  }
+  
+  frankenSpliceDif([1, 2, 3], [4, 5, 6], 1);
+
+
+  function getIndexToIns(arr, num) {
+    arr.sort(function(a, b) {
+      return a - b;
+    });
+  
+    for (let a = 0; a < arr.length; a++) {
+      if (arr[a] >= num) return a;
+    }
+  
+    return arr.length;
+  }
+  
+  console.log(getIndexToIns([10, 20, 30, 40, 50], 30));
+
+  // function getIndexToIns(arr, num) {
+  //   return arr.filter(val => num > val).length;
+  // }
+
+
+  // function getIndexToIns(arr, num) {
+  //   // Find my place in this sorted array.
+  //   var times = arr.length; // runs the for loop once for each thing in the array
+  //   var count = 0;
+  //   for (var i = 0; i < times; i++) {
+  //     if (num > arr[i]) {
+  //       count++;
+  //     }
+  //   } // counts how many array numbers are smaller than num
+  //   return count; // the above equals num's position in a sorted array
+  // }
+  
+  // getIndexToIns([40, 60], 50);
+
+  function mutation(arr) {
+    let temp = arr[1].split('');
+    console.log(temp);
+    let result = false;
+    arr[0] = arr[0].split('').map(item => item.toLowerCase()).join('');
+    console.log(arr[0])
+    for(let i=0; i<temp.length;i++){
+      if(arr[0].includes(temp[i].toLowerCase())){
+        result = true;
+      }else{
+        return false;
+      }
+      
+    }
+  
+    return result;
+  }
+  
+  mutation(["hello", "hey"]);
+
+
+  function chunkArrayInGroups(arr, size) {
+    let resultArr = [];
+  
+    while(arr.length){
+   
+      resultArr.push(arr.splice(0,size));
+      
+    }
+    if(arr.length !=0){
+      resultArr.push(arr);
+    }
+    console.log(resultArr);
+    
+    return resultArr;
+  }
+  
+  chunkArrayInGroups(["a", "b", "c", "d"], 2);
