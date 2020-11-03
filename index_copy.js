@@ -411,3 +411,210 @@ function forecast(arr) {
   }
   
   chunkArrayInGroups(["a", "b", "c", "d"], 2);
+
+
+// There is one crucial side effect of manually setting the prototype to a new object. 
+// It erases the constructor property! This property can be used to check which constructor function created the instance
+// but since the property has been overwritten,
+// it now gives false results:
+function Dog(name) {
+  this.name = name;
+}
+
+// Only change code below this line
+Dog.prototype = {
+
+  constructor : Dog, 
+  numLegs: 4,
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
+
+
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Dog2() { }
+
+// Only change code below this line
+Dog2.prototype = Object.create(Animal.prototype);
+
+let beagle = new Dog2();
+
+/*Constructor property of the child points to the constructor of the parent so that shud be reset*/
+beagle.prototype.constructor = Dog2;
+
+//mixins
+/*As you have seen, behavior is shared through inheritance. However, there are cases when inheritance is not the best solution.
+Inheritance does not work well for unrelated objects like Bird and Airplane. They can both fly, but a Bird is not a type of Airplane and vice versa.
+For unrelated objects, it's better to use mixins. A mixin allows other objects to use a collection of functions.*/
+let bird = {
+  name: "Donald",
+  numLegs: 2
+};
+
+let boat = {
+  name: "Warrior",
+  type: "race-boat"
+};
+
+// Only change code below this line
+let glideMixin = function(obj){
+  obj.glide = function(){
+    console.log("Hey I am gliding");
+  }
+}
+
+glideMixin(bird);
+glideMixin(boat);
+
+
+
+//closures
+function Bird() {
+  let weight = 15;
+
+  this.getWeight = function(){
+    return weight;
+  }
+
+}
+
+
+//An immediately invoked function expression (IIFE) is often used to group related functionality into a single object or module.
+// For example, an earlier challenge defined two mixins:
+let funModule = (function(){
+  return {
+    isCuteMixin : function(obj){
+              return true;
+            },
+
+    singMixin : function(obj){
+      console.log("SInging to an awesome tune");
+    }
+  }
+})();
+
+const squareList = (arr) => {
+  // Only change code below this line
+  // arr = arr.filter((num) => num >0 && Number.isInteger(num)).map(num => num*num);
+  let tempArr = [];
+  arr.reduce((square,num) => {
+    if(num > 0 && Number.isInteger(num)){
+      tempArr.push(num*num);
+    }
+  },0)
+
+  console.log(tempArr);
+  return tempArr;
+  // Only change code above this line
+};
+
+const squaredIntegers = squareList([4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2]);
+console.log(squaredIntegers);
+
+
+//sorting useing the sort function on array with a call back function. JavaScript's default sorting method is by string Unicode point value,
+//q which may return unexpected results. Therefore, it is encouraged to provide a callback function to specify how to sort the array items.
+function alphabeticalOrder(arr) {
+  // Only change code below this line
+  return arr.sort(function(a,b){
+    return a===b ? 0 : a<b ?-1:1;
+  })
+
+  // Only change code above this line
+}
+console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
+
+function diffArray(arr1, arr2) {
+  var newArr = [];
+  
+  newArr = arr1.concat(arr2).filter(item => !arr1.includes(item)||!arr2.includes(item));
+  console.log(newArr);
+  return newArr;
+  
+}
+
+diffArray([1, "calf", 3, "piglet"], [7, "filly"]);
+
+function destroyer(arr) {
+  let result = [];
+  let args = [];
+
+  for(let item in arguments){
+    args.push(arguments[item]);
+  }
+  args.shift()
+  console.log(args);
+  result = arr.filter(item => !args.includes(item))
+  console.log(result);
+  return result;
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+
+function whatIsInAName(collection, source) {
+  var arr = [];
+  // Only change code below this line
+  collection.forEach((item, index) => {
+
+    console.log(collection[index])
+    let count = 0;
+     for(let item in source){
+      if(collection[index][item] === source[item]){
+        count++;
+      }
+      if(count === Object.keys(source).length){
+        arr.push(collection[index]);
+      }
+    }
+
+  });
+  console.log(arr);
+ 
+
+  // Only change code above this line
+  return arr;
+}
+
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+
+function myReplace(str, before, after) {
+
+  str = str.split(' ');
+  console.log(str.indexOf(before));
+      after = after.split('');
+
+  if(str[str.indexOf(before)][0] === str[str.indexOf(before)][0].toUpperCase()){
+    after[0] = after[0].toUpperCase();
+    console.log(after);
+
+  }else{
+      
+    after[0] = after[0].toLowerCase();
+    console.log(after);
+
+  }
+  
+  str[str.indexOf(before)] = after.join('');
+  str= str.join(' ');
+  console.log(str);
+  return str;
+
+}
+
+myReplace("I think we should look up there", "up", "Down");
+
+
