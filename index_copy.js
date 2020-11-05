@@ -1,11 +1,11 @@
-import * as temp from './index.js';
+// import * as temp from './index.js';
 
 
-console.log(temp.temp);
+// console.log(temp.temp);
 
-let myString = "freeCodeCamp";
-let fccRegex = /change/; // Change this line
-// let result = fccRegex.test(myString);
+// let myString = "freeCodeCamp";
+// let fccRegex = /change/; // Change this line
+// // let result = fccRegex.test(myString);
 
 
 //adding i like /change/i can ignore the case while matching
@@ -271,32 +271,85 @@ function forecast(arr) {
   
   booWho(null);
 
-  function titleCase(str) {
-    str = str.split(" ");
-    console.log(str);
+  // function titleCase(str) {
+  //   str = str.split(" ");
+  //   console.log(str);
     
-    for(let i = 0;i<str.length; i++){
-       let strArr = str[i].split('');
-       console.log(strArr);
-       strArr[0] = strArr[0].toUpperCase();
-       console.log(strArr[0]);
-       strArr = strArr.join('');
+  //   for(let i = 0;i<str.length; i++){
+  //      let strArr = str[i].split('');
+  //      console.log(strArr);
+  //      strArr[0] = strArr[0].toUpperCase();
+  //      console.log(strArr[0]);
+  //      strArr = strArr.join('');
 
-       console.log("the words are");
-       console.log(strArr);
-    //    for(let j=0; j<strArr.length; j++){
-    //         if(j==0){
-    //             strArr[j]= strArr[j].toUpperCase();
-    //         }else{
-    //             strArr[j] = strArr[j].toLowerCase();
-    //         }
-    //         strArr = strArr.join('');
-    //    }
-    //    console.log(strArr);
+  //      console.log("the words are");
+  //      console.log(strArr);
+  //   //    for(let j=0; j<strArr.length; j++){
+  //   //         if(j==0){
+  //   //             strArr[j]= strArr[j].toUpperCase();
+  //   //         }else{
+  //   //             strArr[j] = strArr[j].toLowerCase();
+  //   //         }
+  //   //         strArr = strArr.join('');
+  //   //    }
+  //   //    console.log(strArr);
+  //   }
+  //   str = str.join(" ");
+  //   console.log(str);
+  //   return str;
+  // }
+  
+  // titleCase("I'm a little tea pot");
+  
+  // console.log("Testing");
+
+
+
+  function titleCase(str) {
+    var convertToArray = str.toLowerCase().split(" ");
+    var result = convertToArray.map(function(val) {
+      return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+    });
+    return result.join(" ");
+  }
+  
+  titleCase("I'm a little tea pot");
+
+  function frankenSplice(arr1, arr2, n) {
+    let tempArr = arr2.slice();
+    console.log(tempArr.splice(n,tempArr.length));
+    return tempArr.concat(arr1).concat(arr2.slice(n,arr2.length));
+    
+    
+  }
+  
+  frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
+  function frankenSpliceDif(arr1, arr2, n) {
+    // let tempArr = arr2.slice();
+    // tempArr.splice(n,tempArr.length);
+    // return tempArr.concat(arr1).concat(arr2.slice(n,arr2.length));
+      let localArr = arr2.slice();
+    // localArr.splice(n, 0, ...arr1);
+    localArr.splice(n, 0,...arr1);
+    console.log(localArr);
+    return localArr;
+    
+  }
+  
+  frankenSpliceDif([1, 2, 3], [4, 5, 6], 1);
+
+
+  function getIndexToIns(arr, num) {
+    arr.sort(function(a, b) {
+      return a - b;
+    });
+  
+    for (let a = 0; a < arr.length; a++) {
+      if (arr[a] >= num) return a;
     }
-    str = str.join(" ");
-    console.log(str);
-    return str;
+  
+    return arr.length;
   }
   
   titleCase("I'm a little tea pot");
