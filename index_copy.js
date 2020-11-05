@@ -301,3 +301,124 @@ function forecast(arr) {
   
   titleCase("I'm a little tea pot");
   
+
+  function pairElement(str) {
+    let resultArr = [];
+    let tempObj = {
+      A : 'T',
+      T : 'A',
+      C : 'G',
+      G : 'C'
+    };
+  
+    resultArr = str.split('').map(item => [item,tempObj[item]]);
+    console.log(resultArr);
+    // str.split('').forEach((item) => {
+    //   console.log(item);
+    //   let tempArr = [];
+  
+    //   if(item == 'A'){
+    //     tempArr.push(item, 'T');
+        
+    //   }else if(item == 'T'){
+    //     tempArr.push(item,'A');
+    //   }else if(item == 'C'){
+    //     tempArr.push(item, 'G');
+    //   }else if(item == 'G'){
+    //     tempArr.push(item,'C');
+    //     console.log(tempArr);
+    //   }
+    //   resultArr.push(tempArr);
+    // })
+    // console.log(resultArr);
+    return resultArr;
+  
+  }
+  
+  pairElement("GCG");
+
+  
+  function fearNotLetter(str) {
+    let arr = str.split('');
+    let missingLetter;
+    arr.forEach((item,index) => {
+  
+      // console.log(arr[index].charCodeAt())
+      
+      if((index< arr.length-1) &&(arr[index+1].charCodeAt() - arr[index].charCodeAt()) != 1){
+        console.log(arr[index])
+        missingLetter = String.fromCharCode(arr[index].charCodeAt()+1);
+      }
+    })
+    console.log(missingLetter)
+    return missingLetter;
+  }
+  
+  fearNotLetter("abce");
+
+  function uniteUnique(arr) {
+
+    let tempArr = [];
+    
+    for(let item in arguments){
+      tempArr.push(...arguments[item]);
+    }
+    console.log(tempArr);
+    let uniqueArr = [];
+  
+    tempArr.forEach((item) => {
+      if(uniqueArr.indexOf(item) == -1){
+        uniqueArr.push(item)
+      }
+    });
+  
+    console.log(uniqueArr);
+    return uniqueArr;
+  }
+  
+  uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+  
+
+  function convertHTML(str) {
+
+    let htmlEntity = {
+      '&' : "&amp;",
+      '<' : '&lt;',
+      '>' : '&gt;',
+      '"' : '&quot;',
+      "'" : '&apos;',
+      "<>" : "&lt;&gt;"
+    };
+    
+    str = str.split("").map(item => htmlEntity[item] || item).join('');
+    console.log(str);
+    return str;
+  
+  }
+  
+  
+  
+  
+  convertHTML("Schindler's List");
+
+  
+
+  function sumFibs(num) {
+    let start1 = 1, start2 = 1,fib=1, oddSum=2;
+  
+    for(let i =2; i < num;i++){
+      fib = start1 + start2;
+      start1 = start2;
+      start2= fib;
+      // console.log(fib)
+      if(fib%2 != 0 && fib <=num && num > 1){
+        oddSum = oddSum + fib;
+      }
+    }
+    console.log('oddSum :' + oddSum);
+    
+    return oddSum;
+  }
+  
+  sumFibs(1000);
+  
