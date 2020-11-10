@@ -495,3 +495,81 @@ function forecast(arr) {
   }
   
   steamrollArray([1, [2], [3, [[4]]]]);
+
+
+  function truthCheck(collection, pre) {
+
+  
+    let result = collection.every((item) => {
+      return item.hasOwnProperty(pre) && Boolean(item[pre]);
+    })
+    console.log(result);
+    return result;
+  }
+  
+  truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+
+  function addTogether() {
+    console.log([...arguments]);
+    let types = [...arguments].every((item) => {
+      return Number.isInteger(item);
+    });
+    if(types && [...arguments].length == 2){
+  
+      let sum = [...arguments].reduce((sum,item) => sum + item,0);
+      console.log(sum);
+      return sum;
+  
+    }else if([...arguments].length == 1 && types){
+  
+      let arga = [...arguments][0];
+      console.log(arga)
+      return function(num){
+        if([...arguments].every( item => Number.isInteger(item))){
+          return arga + num;
+        }else{
+          return undefined;
+        }
+        
+      }
+  
+    }else{
+      return undefined;
+    }
+    
+  }
+  
+  addTogether(2)(3);
+
+  
+  var Person = function(firstAndLast) {
+    // Only change code below this line
+    // Complete the method below and implement the others similarly
+    this.getFirstName = function(){
+  
+    }
+    this.getLastName = function(){
+  
+    }
+    this.getFirstName = function(){
+  
+    }
+    this.setFirstName = function(){
+  
+    }
+    this.setLastName = function(){
+  
+    }
+    this.getFullName = function() {
+      return "";
+    };
+  
+    this.setFullName = function(){
+      
+    }
+    return firstAndLast;
+  };
+  
+  var bob = new Person('Bob Ross');
+  bob.getFullName();
+  
