@@ -545,31 +545,67 @@ function forecast(arr) {
   var Person = function(firstAndLast) {
     // Only change code below this line
     // Complete the method below and implement the others similarly
+    let name = firstAndLast;
     this.getFirstName = function(){
-  
+
+      return name.slice(0,name.indexOf(' '));
+
     }
-    this.getLastName = function(){
-  
-    }
-    this.getFirstName = function(){
-  
-    }
-    this.setFirstName = function(){
-  
-    }
-    this.setLastName = function(){
-  
-    }
-    this.getFullName = function() {
-      return "";
-    };
-  
-    this.setFullName = function(){
+    this.setFirstName = function(firstName){
+
+      name = firstName + name.slice(name.indexOf(' '), name.length);
       
     }
-    return firstAndLast;
+    this.getLastName = function(){
+
+      return name.slice(name.indexOf(' ')+1, name.length);
+
+    }
+    this.setLastName = function(lastName){
+
+      name = name.slice(0,name.indexOf(' '))+ " "  + lastName;
+
+    }
+    this.getFullName = function() {
+
+      return name;
+
+    };
+  
+    this.setFullName = function(fullName){
+      
+      name = fullName;
+      
+    }
+    // return firstAndLast;
   };
   
   var bob = new Person('Bob Ross');
+  bob.setFirstName("Haskell")
   bob.getFullName();
+
+
+  function orbitalPeriod(arr) {
+    var GM = 398600.4418;
+    var earthRadius = 6367.4447;
+    var a = 2 * Math.PI;
+    var newArr = [];
+  
+    var getOrbPeriod = function(obj) {
+      var c = Math.pow(earthRadius + obj.avgAlt, 3);
+      var b = Math.sqrt(c / GM);
+      var orbPeriod = Math.round(a * b);
+      // create new object
+      return {name: obj.name, orbitalPeriod: orbPeriod};
+    };
+  
+    for (var elem in arr) {
+      newArr.push(getOrbPeriod(arr[elem]));
+    }
+  
+    return newArr;
+  }
+  
+  // test here
+  orbitalPeriod([{ name: "sputnik", avgAlt: 35873.5553 }]);
   
