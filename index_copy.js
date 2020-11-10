@@ -475,3 +475,23 @@ function forecast(arr) {
   
   sumFibs(1000);
   
+
+  function steamrollArray(arr) {
+
+    let resultArr = [];
+    let flattenArray = function(arg){
+  
+      if(!Array.isArray(arg)){
+        resultArr.push(arg);
+      }else{
+        for(let i in arg)
+        flattenArray(arg[i]);
+      }
+    }
+  
+    arr.forEach(flattenArray);
+    console.log(resultArr);
+    return resultArr;
+  }
+  
+  steamrollArray([1, [2], [3, [[4]]]]);
