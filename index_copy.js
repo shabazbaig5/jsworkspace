@@ -475,3 +475,42 @@ function forecast(arr) {
   
   sumFibs(1000);
   
+
+  function sumPrimes(num) {
+    let count =0, sum=0;
+    for(let i =1; i<=num; i++){
+      count = 0;
+      for(let j=1;j<=i;j++){
+        if(i%j ===0){
+          count++;
+        }
+        
+      }
+      if(count ==2 && i<=num){
+  
+        sum = sum + i;
+      }
+    }
+    
+    // console.log(arr.reduce((a,b) => a+b));
+    // return arr.reduce((a,b) => a+b);
+    console.log(sum);
+    return sum;
+  }
+  
+  sumPrimes(20);
+  
+
+  function dropElements(arr, func) {
+    let arrResult = [];
+    arr.forEach((item,index) => {
+      
+      if(func(item)){
+        arrResult= arr.splice(index,arr.length);
+      }
+    });
+    console.log(arrResult);
+    return arrResult;
+  }
+  
+  dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;});
