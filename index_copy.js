@@ -476,41 +476,100 @@ function forecast(arr) {
   sumFibs(1000);
   
 
-  function sumPrimes(num) {
-    let count =0, sum=0;
-    for(let i =1; i<=num; i++){
-      count = 0;
-      for(let j=1;j<=i;j++){
-        if(i%j ===0){
-          count++;
+  function steamrollArray(arr) {
+
+    let resultArr = [];
+    let flattenArray = function(arg){
+  
+      if(!Array.isArray(arg)){
+        resultArr.push(arg);
+      }else{
+        for(let i in arg)
+        flattenArray(arg[i]);
+      }
+    }
+  
+    arr.forEach(flattenArray);
+    console.log(resultArr);
+    return resultArr;
+  }
+  
+  steamrollArray([1, [2], [3, [[4]]]]);
+
+
+  function truthCheck(collection, pre) {
+
+  
+    let result = collection.every((item) => {
+      return item.hasOwnProperty(pre) && Boolean(item[pre]);
+    })
+    console.log(result);
+    return result;
+  }
+  
+  truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+
+  function addTogether() {
+    console.log([...arguments]);
+    let types = [...arguments].every((item) => {
+      return Number.isInteger(item);
+    });
+    if(types && [...arguments].length == 2){
+  
+      let sum = [...arguments].reduce((sum,item) => sum + item,0);
+      console.log(sum);
+      return sum;
+  
+    }else if([...arguments].length == 1 && types){
+  
+      let arga = [...arguments][0];
+      console.log(arga)
+      return function(num){
+        if([...arguments].every( item => Number.isInteger(item))){
+          return arga + num;
+        }else{
+          return undefined;
         }
         
       }
-      if(count ==2 && i<=num){
   
-        sum = sum + i;
-      }
+    }else{
+      return undefined;
     }
     
-    // console.log(arr.reduce((a,b) => a+b));
-    // return arr.reduce((a,b) => a+b);
-    console.log(sum);
-    return sum;
   }
   
-  sumPrimes(20);
-  
+  addTogether(2)(3);
 
-  function dropElements(arr, func) {
-    let arrResult = [];
-    arr.forEach((item,index) => {
-      
-      if(func(item)){
-        arrResult= arr.splice(index,arr.length);
-      }
-    });
-    console.log(arrResult);
-    return arrResult;
-  }
   
-  dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;});
+  var Person = function(firstAndLast) {
+    // Only change code below this line
+    // Complete the method below and implement the others similarly
+    this.getFirstName = function(){
+  
+    }
+    this.getLastName = function(){
+  
+    }
+    this.getFirstName = function(){
+  
+    }
+    this.setFirstName = function(){
+  
+    }
+    this.setLastName = function(){
+  
+    }
+    this.getFullName = function() {
+      return "";
+    };
+  
+    this.setFullName = function(){
+      
+    }
+    return firstAndLast;
+  };
+  
+  var bob = new Person('Bob Ross');
+  bob.getFullName();
+  
