@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .child-one{
+      background-color: skyblue;
+      /* position: sticky; */
+      position : absolute;
+      /* top: 0; */
+    }
+
+    .child-two{
+      background-color: brown;
+      /* position: absolute; */
+      /* top:0; */
+    }
+
+    .child-three{
+      background-color: beige;
+    }
+
+    .child{
+      padding : 8px;
+      border :1px solid black;
+      
+    }
+    .parent{
+      height: 200vh;
+      padding : 5px;
+      background-color: tomato;
+      position: relative;
+    } 
+
+  
+    .rect {
+    width: 60%;
+    height: 200px;
+    margin-top: 20px;
+  }
+
+  .first {
+    background-color: red;
+    position: absolute;
+    z-index: 1;
+
+  }
+  .second {
+    background-color: blue;
+    position: absolute;
+    left: 40px;
+    top: 50px;
+    z-index: 2;
+  }
+
+  body {
+    background-color: white;
+  }
+  header {
+    background-color: #09A7A1;
+    color: white;
+    padding: 0.25em;
+  }
+  h2 {
+    color: #09A7A1;
+  }
+  button {
+    background-color: #FF790E;
+  }
+  footer {
+    background-color: #09A7A1;
+    color: white;
+    padding: 0.5em;
+  }
+  </style>
+</head>
+
+
+<body>
+  
+  <div class="parent">
+    Parent
+    <div class="child-one child">
+      One
+    </div>
+
+    <div class="child-two child">
+      two
+    </div>
+
+    <div class="child-three child">
+      three
+    </div>
+  </div>
+
+  
+  <!-- <div class="first rect"></div>
+<div class="second rect"> </div> -->
+
+
+<header>
+  <h1>Cooking with FCC!</h1>
+</header>
+<main>
+  <article>
+    <h2>Machine Learning in the Kitchen</h2>
+    <p>Join this two day workshop that walks through how to implement cutting-edge snack-getting algorithms with a command line interface. Coding usually involves writing exact instructions, but sometimes you need your computer to execute flexible commands, like <code>fetch Pringles</code>.</p>
+    <button>Sign Up</button>
+  </article>
+  <article>
+    <h2>Bisection Vegetable Chopping</h2>
+    <p>This week-long retreat will level-up your coding ninja skills to actual ninja skills. No longer is the humble bisection search limited to sorted arrays or coding interview questions, applying its concepts in the kitchen will have you chopping carrots in O(log n) time before you know it.</p>
+    <button>Sign Up</button>
+  </article>
+</main>
+<br>
+<footer>&copy; 2018 FCC Kitchen</footer>
+</body>
+</html>
+
+
+<!-- 
+
+  Color	HSL
+red	hsl(0, 100%, 50%)
+yellow	hsl(60, 100%, 50%)
+green	hsl(120, 100%, 50%)
+cyan	hsl(180, 100%, 50%)
+blue	hsl(240, 100%, 50%)
+magenta	hsl(300, 100%, 50%)
+ -->
+<!-- <style>
+    h4 {
+      text-align: center;
+      background-color: rgba(45, 45, 45, 0.1);
+      padding: 10px;
+      font-size: 27px;
+    }
+  
+    p {
+      text-align: justify;
+    }
+  
+    .links {
+      text-align: left;
+      color: black;
+    }
+  
+    .fullCard {
+      width: 245px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 10px 5px;
+      padding: 4px;
+    }
+  
+    .cardContent {
+      padding: 10px;
+    }
+  
+    .cardText {
+      margin-bottom: 30px;
+    }
+  
+    #thumbnail{
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  
+    }
+  
+  </style>
+  <div class="fullCard" id="thumbnail">
+    <div class="cardContent">
+      <div class="cardText">
+        <h4>Alphabet</h4>
+        <hr>
+        <p><em>Google was founded by Larry Page and Sergey Brin while they were <u>Ph.D. students</u> at <strong>Stanford University</strong>.</em></p>
+      </div>
+      <div class="cardLinks">
+        <a href="https://en.wikipedia.org/wiki/Larry_Page" target="_blank" class="links">Larry Page</a><br><br>
+        <a href="https://en.wikipedia.org/wiki/Sergey_Brin" target="_blank" class="links">Sergey Brin</a>
+      </div>
+    </div>
+  </div>
+   -->
