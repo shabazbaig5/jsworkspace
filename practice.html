@@ -75,6 +75,20 @@
     color: white;
     padding: 0.5em;
   }
+
+  .gradient{
+    border-radius: 20px;
+    width: 70%;
+    height: 400px;
+    margin:  50 auto;
+    background: repeating-linear-gradient(
+      45deg,
+      yellow 0px,
+      yellow 40px,
+      black 40px,
+      black 80px
+    );
+  }
   </style>
 </head>
 
@@ -105,6 +119,8 @@
   <h1>Cooking with FCC!</h1>
 </header>
 <main>
+
+  <div class="gradient"></div>
   <article>
     <h2>Machine Learning in the Kitchen</h2>
     <p>Join this two day workshop that walks through how to implement cutting-edge snack-getting algorithms with a command line interface. Coding usually involves writing exact instructions, but sometimes you need your computer to execute flexible commands, like <code>fetch Pringles</code>.</p>
@@ -124,6 +140,9 @@
 
 <!-- 
 
+  -- Hue
+  -- saturation
+  --lightness
   Color	HSL
 red	hsl(0, 100%, 50%)
 yellow	hsl(60, 100%, 50%)
