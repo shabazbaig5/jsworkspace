@@ -8,18 +8,16 @@
   <style>
     .child-one{
       background-color: skyblue;
-      /* position: sticky; */
-      position : absolute;
-      top: 0;
-      right: 0;
-      /* bottom :0; */
-
+      position : fixed;
+      top:0;
+      /* bottom : 0; */
+      
+      
     }
 
     .child-two{
       background-color: brown;
-      /* position: relative; */
-      /* top:0; */
+    
     }
 
     .child-three{
@@ -37,6 +35,7 @@
       padding : 5px;
       background-color: tomato;
       position: relative;
+      /* top: 30px; */
     } 
 
   
@@ -93,6 +92,21 @@
       black 80px
     );
   }
+
+  .center {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 25px 10px 0 0 blue;
+  }
+
   </style>
 </head>
 
@@ -135,6 +149,8 @@
     <p>This week-long retreat will level-up your coding ninja skills to actual ninja skills. No longer is the humble bisection search limited to sorted arrays or coding interview questions, applying its concepts in the kitchen will have you chopping carrots in O(log n) time before you know it.</p>
     <button>Sign Up</button>
   </article>
+
+  <div class="center"></div>
 </main>
 <br>
 <footer>&copy; 2018 FCC Kitchen</footer>

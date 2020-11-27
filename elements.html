@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+.required::before{
+    content:"*";
+    color : red;
+
+}
+
+[data-tooltip]{
+    position : relative;
+}
+[data-tooltip]:hover::after {
+    content:attr(data-tooltip);
+    color : black;
+    /* background-color: blue; */
+    position: absolute;
+    top:100%;
+    left : 0;
+    right: 0;
+    padding : 10px; 
+    margin : 10px;  
+}
+
+.form-group{
+
+    margin : 5px;
+    position: relative;
+}
+.topPlaceholder{
+    position: absolute;
+    top:0px; 
+    left : 9px;
+    /* background-color: white; */
+    padding : 6px 6px 6px 0px;
+    /* display : none; */
+    /* animation-name: liftup; */
+}
+
+
+.form-element{
+
+    padding : 6px;
+    
+}
+/* 
+.form-element:focus{
+
+    
+    top:5px;
+    background-color: white;
+
+} */
+
+.topPlaceHolderLift{
+    position: absolute;
+    left : 9px;
+    top : -8px;
+
+    padding : 0px 2px 0px 2px;
+    background-color: white;
+}
+
+</style>
+
+<body>
+
+    <!-- <label class="required">Name</label>
+    <input type="text" required>
+    <button data-tooltip="submit">submit</button> -->
+
+
+    <form>
+
+        <div class="form-group">
+            <input type="text" name="name" id="name" class="form-element">
+            <span class="topPlaceholder" id="placeHolder">Name</span>
+        </div>
+
+  
+
+    </form>
+    
+
+</body>
+
+<script>
+
+document.querySelector('#name').addEventListener('focusin', (e) => {
+        // document.querySelector('.topPlaceholder').style.top = "-12px";
+        // document.querySelector('.topPlaceholder').style.padding = "0px";
+        // document.querySelector('.topPlaceholder').style.backgroundColor = "white";
+
+        if(e.target.value == ""){
+            document.querySelector('#placeHolder').classList.remove('topPlaceholder');
+        document.querySelector('#placeHolder').classList.add('topPlaceHolderLift');
+        }
+        
+
+    });
+
+    document.querySelector('#name').addEventListener('focusout', (e) => {
+
+        if(e.target.value == ""){
+
+        document.querySelector('#placeHolder').classList.remove('topPlaceHolderLift');
+        document.querySelector('#placeHolder').classList.add('topPlaceholder');
+        }
+    })
+</script>
+</html>
