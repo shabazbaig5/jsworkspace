@@ -39,9 +39,22 @@ html, body{
 }
 
 
-/* .home{
-    margin-right: auto;
-} */
+.home{
+
+    /* margin-right: auto; */
+    /* flex : 1 1 300px; */
+    /* flex: 1 1 600px; */
+    order: 3;
+}
+
+.contact{
+    order: 4;
+}
+
+ .about{
+    /* flex : 1 1 400px; */
+    order: 1;
+ }
 /* 
 .container > div{
     flex:1
@@ -56,3 +69,27 @@ html, body{
 .container > .home{
     align-self: flex-end;
 } */
+
+
+
+
+@media all and (max-width: 900px){
+    .container{
+        flex-wrap: wrap;
+    }
+
+    /* .container > ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    } */
+    .about{
+        order: 5;
+    }
+
+    .container > div{
+        flex:1 1 100%;
+    }
+    
+}
