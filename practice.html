@@ -79,6 +79,79 @@
     padding: 0.5em;
   }
 
+<<<<<<< HEAD
+
+  .toggle_radio {
+			color: white !important;
+			font-size: 10px !important;
+			font-weight: bold;
+			position: relative;
+			background: rgb(38, 50, 56, .3);
+			margin: 4px auto;
+			overflow: hidden;
+			padding: 0 !important;
+			-webkit-border-radius: 50px;
+			-moz-border-radius: 50px;
+			border-radius: 50px;
+			position: relative;
+			height: 26px;
+			width: 135px;
+			font-size: 10px !important;
+		}
+
+		.toggle_radio>* {
+			float: left;
+		}
+
+		.toggle_radio input[type=radio] {
+			display: none;
+		}
+
+		.toggle_radio label {
+			/* font: 90%/1.618 "Source Sans Pro"; */
+			color: black;
+			z-index: 0;
+			display: block;
+			width: 60px;
+			height: 20px;
+			margin: 3px 3px;
+			-webkit-border-radius: 50px;
+			-moz-border-radius: 50px;
+			border-radius: 50px;
+			cursor: pointer;
+			z-index: 1;
+			text-align: center;
+		}
+
+		.toggle_option_slider {
+			background-color: rgb(255, 255, 255);
+			width: 68px;
+			height: 24px;
+			position: absolute;
+			padding-top: 3px;
+			text-align: center;
+			color: black !important;
+			top: 1px;
+			-webkit-border-radius: 50px;
+			-moz-border-radius: 50px;
+			border-radius: 50px;
+			-webkit-transition: all .4s ease;
+			-moz-transition: all .4s ease;
+			-o-transition: all .4s ease;
+			-ms-transition: all .4s ease;
+			transition: all .4s ease;
+		}
+
+		#cases1:checked~.toggle_option_slider {
+			background-color: rgb(255, 255, 255);
+			left: 0.5px;
+		}
+
+		#cases2:checked~.toggle_option_slider {
+			background-color: rgb(255, 255, 255);
+			left: 67px;
+		}
+=======
   .gradient{
     border-radius: 20px;
     width: 70%;
@@ -107,6 +180,7 @@
     box-shadow: 25px 10px 0 0 blue;
   }
 
+>>>>>>> a04febcecb0402ffcee5720dd7df7435ea79d6ed
   </style>
 </head>
 
@@ -155,6 +229,21 @@
 <br>
 <footer>&copy; 2018 FCC Kitchen</footer>
 </body>
+
+<script>
+    console.log(document.querySelectorAll('.toggle_option')); 
+    document.querySelectorAll('.toggle_option').forEach((item) => {
+      item.addEventListener('change', (e) => {
+        console.log(e.target.value);
+
+        if(e.target.value.toLowerCase() == "mycases"){
+          console.log("display the my cases table");
+        }else{
+          console.log("display the other table");
+        }
+      })
+    });
+</script>
 </html>
 
 
