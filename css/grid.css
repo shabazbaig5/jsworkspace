@@ -1,16 +1,49 @@
-body{
+body,html{
+    height: 100%;
     background: beige;
     font-family: sans-serif;
     font-weight: bold;
 }
 
 .container{
+
+    height: 100%;
     width: 100%;
     text-align: center;
     display: grid;
-    grid-template: repeat(2,50px) / repeat(3, 1fr);
-    /* grid-template-rows: ; */
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px 200px 40px;;
     grid-gap: 3px;
+}
+
+.header{
+    /* grid-column-start: 1;
+    grid-column-end: 3; */
+    /* grid-column: 1/3 */
+    grid-column: 2 / -1;
+    align-content: center;
+}
+
+.menu{
+
+    grid-row: 1/3;
+    
+
+}
+.content{
+    grid-column: 2/-1;
+   
+}
+.footer{
+
+    grid-column: 1 / -1;
+    /* grid-column: 1/3; */
+    /* or can be written as
+    grid-column: 1/span 2;
+    or
+    grid-column: 1 / -1;
+    */
 }
 
 .container > div{
@@ -22,8 +55,8 @@ body{
     background-color: #96ceb4;
 }
 
-.container > div:nth-child(4){
-    background-color: antiquewhite;
+.container > div:nth-child(4){ 
+    background-color: #96ceb4;
 }
 .container> div:nth-child(odd){
     background-color: #ff6f69
