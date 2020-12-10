@@ -88,7 +88,13 @@
   
 
     </form>
-    
+
+    <!-- <input type="text" value="default value" id="test"> -->
+
+    <!-- <button id="change">change value</button><br> -->
+    <button id="startTime">Start Time</button>
+    <button id="stopTime">Stop Time</button>
+    <p><span id="minutes">00</span> : <span id="seconds">00</span></p>
 
     
 
@@ -96,6 +102,7 @@
 
 <script>
 
+let startTimer = null;
 document.querySelector('#name').addEventListener('focusin', (e) => {
        
 
@@ -114,6 +121,47 @@ document.querySelector('#name').addEventListener('focusin', (e) => {
         document.querySelector('#placeHolder').classList.remove('topPlaceHolderLift');
         document.querySelector('#placeHolder').classList.add('topPlaceholder');
         }
-    })
+    });
+
+
+    document.querySelector('#startTime').addEventListener('click', (e) => {
+
+        startTimer = setInterval(handleStartTimer,10)
+
+    });
+
+    stopTime.addEventListener('click', (e) =>{
+        clearInterval(startTimer);
+    });
+    
+    handleStartTimer = ()=> {
+        
+        let seconds = parseInt(document.querySelector('#seconds').innerText);
+
+        seconds += 1;
+        
+        if(seconds < 10)
+            document.querySelector('#seconds').innerHTML = '0' + seconds;
+        else
+            document.querySelector('#seconds').innerHTML = seconds;
+        if(seconds>59){
+
+         if(parseInt(document.querySelector('#minutes').innerText)<10)
+                document.querySelector('#minutes').innerText = '0'+(parseInt(document.querySelector('#minutes').innerText) + 1);
+            else
+                document.querySelector('#minutes').innerText = parseInt(document.querySelector('#minutes').innerText) + 1;
+            seconds = 0;
+            document.querySelector('#seconds').innerText = '0';
+
+        }
+        
+    }
+    // change.addEventListener('click', (e) => {
+
+    //     console.log("The button is clicked");
+    //     test.value = "changed value";
+    //     test.style.backgroundColor = "yellow";
+    // })
+    
 </script>
 </html>
