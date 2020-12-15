@@ -18,15 +18,20 @@ header{
     color: white;
     /* padding: 10px; */
     height: 10vh;
+    position: sticky;
+    /* width: 100%; */
+    top: 0;
+    background-color: #202020;
+
     
 }
 
 .header-wrapper{
     display: flex;
-    width: 80%;
+    width: 60%;
     margin: auto;
     align-items: center;
-    border-bottom: 1px solid rgb(64, 191, 191);
+    /* border-bottom: 1px solid rgb(64, 191, 191); */
     padding-bottom: 15px;
 }
 
@@ -61,8 +66,8 @@ nav{
 .presentation{
     display: flex;
     margin: auto;
-    width: 80%;
-    flex-flow: row nowrap;
+    width: 60%;
+    /* flex-flow: row nowrap; */
     height: 90vh;
     justify-content: space-between;
     align-items: center;
@@ -93,6 +98,39 @@ nav{
 #name{
     color: rgb(64, 191, 191);
 }
+
+.about-me{
+    display: flex;
+    margin: auto;
+    width: 60%;
+    height: 90vh;
+    /* border: 1px solid white; */
+    align-items: center;
+    justify-content: space-evenly;
+
+    text-align: center;
+}
+
+/* .tech-stickers{
+    display: flex;
+} */
+
+.techHeading{
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.sticker-wrapper i{
+    font-size: 60px !important;
+    padding: 8px;
+    color: rgb(64, 191, 191);
+}
+
+.sticker-wrapper{
+    flex-grow: 2;
+    flex-basis: 0;
+}
+
 
 @media screen and (max-width: 1024px){
     body{
