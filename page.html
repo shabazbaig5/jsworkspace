@@ -38,9 +38,66 @@
 
             </div>
         </section>
+
+        <section>
+            <form>
+                <input type="text" id="empId">
+                <input type="text" id="supervisor">
+            </form>
+
+            <button id="submit">Submit</button>
+        </section>
     </main>
     <footer>
 
     </footer>
 </body>
+
+<script>
+    console.log("Locked and Loaded");
+
+    let objData = [
+
+{
+emp_id:34567,
+login:"login1",
+site:"employee_site1",
+supervisor:"tm_login1",
+department:"emp_dep1",
+businessTitle:"emp_BT1" 
+},{
+emp_id:34568,
+login:"login2",
+site:"employee_site2",
+supervisor:"tm_login2",
+department:"emp_dep2",
+businessTitle:"emp_BT2" 
+},{
+emp_id:34569,
+login:"login3",
+site:"employee_site3",
+supervisor:"tm_login3",
+department:"emp_dep3",
+businessTitle:"emp_BT3" 
+ 
+}
+
+];
+console.log(objData);
+    document.querySelector('#submit').addEventListener('click', (e) => {
+
+        let ind;
+        let empId = document.querySelector('#empId').value;
+        objData.forEach((obj, index) => {
+            console.log(obj.emp_id);
+            if(obj.emp_id == parseInt(empId)){
+                ind = index;
+                document.querySelector('#supervisor').value = objData[ind].supervisor;
+            }
+        });
+
+        console.log(ind);
+
+    })
+</script>
 </html>
