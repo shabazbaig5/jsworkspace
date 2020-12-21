@@ -18,16 +18,16 @@
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li class="nav-link"><a href="#">home</a></li>
+                    <li class="nav-link"><a href="#home">home</a></li>
                     <li class="nav-link"><a href="#about">about</a></li>
-                    <li class="nav-link"><a href="#">contact</a></li>
+                    <li class="nav-link"><a href="#contact-me">contact</a></li>
                 </ul>
             </nav>
         </div>
         
     </header>
     <main>
-        <section class="presentation">
+        <section class="presentation" id="home">
             <div class="introduction">
                 <div class="intro-text">
                     <p>Hi, I am <span id="name">Shahabaz</span>. I am a full stack web developer with a focus on JavaScript technologies.</p>
@@ -84,22 +84,29 @@
             <!-- </div> -->
         </section>
 
-        <section class="contact-me">
+        <section class="contact-me" id="contact-me">
             <div class="contactWrapper">
                 <form>
                     <div>
-                        <label>Name</label>
+                        <!-- <label>Name</label> -->
                         <input type="text" name="name" placeholder="name">
                     </div>
                     <div>
-                        <label>Email</label>
+                        <!-- <label>Email</label> -->
                         <input type="email" name="email" placeholder="email">
                     </div>
                     <div>
-                        <label>Comments</label>
-                        <textarea name="comments"></textarea>
+                        <!-- <label>Comments</label> -->
+                        <textarea name="comments" placeholder="comments"></textarea>
+                    </div>
+                    <div>
+                        <button>Contact</button>
                     </div>
                 </form>
+            </div>
+
+            <div class="socialMedia">
+                
             </div>
         </section>
     </main>
@@ -139,20 +146,24 @@ businessTitle:"emp_BT3"
 
 ];
 console.log(objData);
-    document.querySelector('#submit').addEventListener('click', (e) => {
+    // document.querySelector('#submit').addEventListener('click', (e) => {
 
-        let ind;
-        let empId = document.querySelector('#empId').value;
-        objData.forEach((obj, index) => {
-            console.log(obj.emp_id);
-            if(obj.emp_id == parseInt(empId)){
-                ind = index;
-                document.querySelector('#supervisor').value = objData[ind].supervisor;
-            }
-        });
+    //     let ind;
+    //     let empId = document.querySelector('#empId').value;
+    //     objData.forEach((obj, index) => {
+    //         console.log(obj.emp_id);
+    //         if(obj.emp_id == parseInt(empId)){
+    //             ind = index;
+    //             document.querySelector('#supervisor').value = objData[ind].supervisor;
+    //         }
+    //     });
 
-        console.log(ind);
+    //     console.log(ind);
 
-    })
+    // })
+
+
+
 </script>
+<script src="script/page.js"></script>
 </html>
