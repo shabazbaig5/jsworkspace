@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/page.css">
+    <script src="https://kit.fontawesome.com/d92005360f.js" crossorigin="anonymous"></script>
+
     <title>Page</title>
 </head>
 <body>
@@ -17,7 +19,7 @@
             <nav>
                 <ul class="nav-links">
                     <li class="nav-link"><a href="#">home</a></li>
-                    <li class="nav-link"><a href="#">about</a></li>
+                    <li class="nav-link"><a href="#about">about</a></li>
                     <li class="nav-link"><a href="#">contact</a></li>
                 </ul>
             </nav>
@@ -28,7 +30,7 @@
         <section class="presentation">
             <div class="introduction">
                 <div class="intro-text">
-                    <p>Hi, I am <span id="name">Shahabaz</span>. I am an full stack web developer with a focus on JavaScript technologies.</p>
+                    <p>Hi, I am <span id="name">Shahabaz</span>. I am a full stack web developer with a focus on JavaScript technologies.</p>
                 </div>
             </div>
 
@@ -39,13 +41,66 @@
             </div>
         </section>
 
-        <section>
-            <form>
-                <input type="text" id="empId">
-                <input type="text" id="supervisor">
-            </form>
+        
+        <section class="about-me" id="about">
+            <!-- <div class="tech-stickers"> -->
+                <!-- <div class="techHeading">
+                    <h3>Technologies I worked on</h3>
+                </div> -->
+                <div class="description-about">
+                    <p>I am a full stack web developer with an expertise in JavaScript technologies solving real world problems through web application.</p>
 
-            <button id="submit">Submit</button>
+                </div>
+                
+
+                <div class="sticker-wrapper">
+                    
+                    <span data-tooltip="JS">
+                        <i class="fab fa-js-square"></i>
+                    </span>
+                    <span data-tooltip="CSS">
+                        <i class="fab fa-css3-alt"></i>
+                    </span>
+                    <span data-tooltip="HTML">
+                        <i class="fab fa-html5"></i>
+                    </span>
+                    <span data-tooltip="Node">
+                        <i class="fab fa-node-js"></i>
+                    </span>
+                    <span data-tooltip="Java">
+                        <i class="fab fa-java"></i>
+                    </span>
+                    <span data-tooltip="React">
+                        <i class="fab fa-react"></i>
+                    </span>
+                    <span data-tooltip="NPM">
+                        <i class="fab fa-npm"></i>
+                    </span>
+                    <span data-tooltip="GIT">
+                        <i class="fab fa-git-alt"></i>
+                    </span>
+                </div>
+                
+            <!-- </div> -->
+        </section>
+
+        <section class="contact-me">
+            <div class="contactWrapper">
+                <form>
+                    <div>
+                        <label>Name</label>
+                        <input type="text" name="name" placeholder="name">
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="email">
+                    </div>
+                    <div>
+                        <label>Comments</label>
+                        <textarea name="comments"></textarea>
+                    </div>
+                </form>
+            </div>
         </section>
     </main>
     <footer>

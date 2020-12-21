@@ -18,15 +18,20 @@ header{
     color: white;
     /* padding: 10px; */
     height: 10vh;
+    position: sticky;
+    /* width: 100%; */
+    top: 0;
+    background-color: #202020;
+
     
 }
 
 .header-wrapper{
     display: flex;
-    width: 80%;
+    width: 60%;
     margin: auto;
     align-items: center;
-    border-bottom: 1px solid rgb(64, 191, 191);
+    /* border-bottom: 1px solid rgb(64, 191, 191); */
     padding-bottom: 15px;
 }
 
@@ -61,8 +66,8 @@ nav{
 .presentation{
     display: flex;
     margin: auto;
-    width: 80%;
-    flex-flow: row nowrap;
+    width: 60%;
+    /* flex-flow: row nowrap; */
     height: 90vh;
     justify-content: space-between;
     align-items: center;
@@ -94,7 +99,71 @@ nav{
     color: rgb(64, 191, 191);
 }
 
+.about-me{
+    display: flex;
+    margin: auto;
+    width: 60%;
+    height: 90vh;
+    /* border: 1px solid white; */
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    text-align: center;
+    flex-direction: row;
+    
+}
+
+/* .tech-stickers{
+    display: flex;
+} */
+
+.techHeading{
+    flex: 1 0 100%;
+    text-align: center;
+
+}
+
+.sticker-wrapper i{
+    font-size: 100px !important;
+    padding: 8px;
+    color: rgb(64, 191, 191);
+}
+
+.sticker-wrapper{
+    flex: 1;
+    position: relative;
+
+}
+
+
+.description-about{
+    flex: 1;
+    text-align: left;
+    font-size: 30px;
+
+}
+
+/* span:hover::before{
+    content: attr(data-tooltip);
+    color: rgb(64, 191, 191);
+    position: absolute;
+    
+    text-align: center;
+    
+  
+    border: 1px solid white;
+    
+} */
+
+
+.contactWrapper input , textarea{
+    border-bottom: 1px solid rgb(64, 191, 191);
+    border-right: none;
+    padding: 8px;
+    background-color: #202020;
+}
 @media screen and (max-width: 1024px){
+
     body{
        /* display: none; */
     }
