@@ -159,6 +159,7 @@ nav{
     height: 90vh;
     /* border: 1px solid white; */
     display: flex;
+
     justify-content: center;
     align-content: center;
 }
@@ -168,6 +169,7 @@ nav{
     /* border: 1px solid white; */
     /* height: 100%; */
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -219,7 +221,15 @@ nav{
 .contactWrapper button:hover{
     
     cursor: pointer;
+    background-color: rgb(64, 191, 191);
+    color: #202020;
 
+}
+
+.socialMedia i{
+    font-size: 60px !important;
+    padding: 8px;
+    color: rgb(64, 191, 191);
 }
 @media screen and (max-width: 1024px){
 
