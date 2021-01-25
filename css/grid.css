@@ -1,7 +1,7 @@
 html, body {
 
     height: 100%;
-    background: beige;
+    /* background: beige; */
     font-family: sans-serif;
     font-weight: bold;
     box-sizing: border-box;
@@ -20,7 +20,7 @@ html, body {
     display: grid;
     /* grid-template-columns: repeat(12, 1fr); */
     /* grid-template-columns: repeat(2, 1fr); */
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(10px,1fr));
     /* grid-template-rows: 40px auto 40px; */
     grid-template-rows: repeat( 100px);
     grid-auto-rows: 100px;
@@ -75,3 +75,35 @@ html, body {
 .container> div:nth-child(odd){
     background-color: #ff6f69
 }
+
+
+.userAddressList{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+    padding: 10px;
+}
+
+.addresses{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    /* width: 75%; */
+    flex: 2;
+}
+
+
+.addresses > div {
+    flex: 1;
+}
+
+.userAddressList button{
+    padding: 10px;
+    
+}
+
+.userAddressList > div {
+    margin : 5px;
+}
+

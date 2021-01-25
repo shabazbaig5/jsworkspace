@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>  <meta charset="utf-8">
+  <title>FlashCards</title>
+
+  <style>
+      .flash-card {
+  width: 100%;
+  position: relative; 
+  height: 100%;
+}
+
+.flash-card-left, .flash-card-right {
+  height: 274px;
+  width: 40px;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.flash-card-left {
+  left: 0;
+  padding-left: 3px;
+}
+
+.flash-card-right {
+  text-align: right;
+  right: 0;
+  padding-right: 3px;
+}
+
+.flash-card-center {
+  margin: 0 40px;
+}
+
+#content {
+  padding: 10px;
+  text-align: center;
+}
+
+#flipBtn {
+  width: 200px;
+  margin: 10px auto;
+  display: block;
+}
+
+#count {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color:  #e7e9ec;
+}
+
+.button {
+  background: #e7e9ec;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 1px solid #ADB1BB;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  padding: 3px;
+  display: inline-block;
+}
+  </style>
+</head>
+
+<body>
+  <div class="flash-card">
+    <div class="flash-card-left">
+      <a id="prevBtn" tabindex="0" class="button">
+        prev
+      </a>
+    </div>
+    <div class="flash-card-center">
+      <div id="content">
+      </div>
+      <a id="flipBtn" tabindex="0" class="button">flip</a>
+      <span id="count"></span>
+    </div>
+    <div class="flash-card-right">
+      <a id="nextBtn" tabindex="0" class="button">
+        next
+      </a>
+    </div>
+  </div>
+</body>
+
+<script>
+
+const REMOTE_DATA_SRC = "https://jsbin.amazon.com/lazelokud/1.json";
+
+//-----------App----------
+// App that holds app logic and state
+// it is like a 'heavy' controller
+// FOLLOW UP: how to further separate its logic?
+class App {
+  constructor(cache, api, initialCards) {
+    this.cache = cache;
+    this.api = api;
+
+    // FOLLOW UP: ui references, might be abstract to View Layer
+    this.prevBtn = document.getElementById('prevBtn');
+    this.nextBtn = document.getElementById('nextBtn');
+    this.flipBtn = document.getElementById('flipBtn');
+    this.viewContent = document.getElementById('content');
+    this.count = document.getElementById('count');
+    this.init(initialCards);
+  }
+
+  init(initialCards) {
+    /*
+    UI state:
+    
+    'cards' as an array, might be abstract to Data Model
+    'index' to indicate the current location
+    'flip' to determine wether to show the answer
+
+    Remote State:
+    'loading' to indicate network status
+    */
+
+    const localCards = this.cache.load();
+    console.log(localCards);
+    // naive merge, a good chance of testing merging array, a unique ID might be required
+    this.cards = localCards.length > initialCards.length ? localCards : initialCards;
+    this.flipped = false;
+    this.index = 0;
+    this.loading = false;
+
+    // event binding, if not written as arrow function, need to bind to 'this'
+    this.nextBtn.addEventListener('click', this.next);
+    this.prevBtn.addEventListener('click', this.prev);
+    this.flipBtn.addEventListener('click', this.flip);
+
+    return this.render();
+  }
+
+  next = () => {
+    if (this.loading) {
+      return;
+    }
+
+    // FOLLOW UP: when should we fetch more cards
+    if (this.index === this.cards.length - 1) {
+      return this.loadMore();
+    }
+
+    this.flipped = false;
+    this.index++;
+    return this.render();
+  }
+
+  loadMore() {
+    this.loading = true;
+    this.render();
+    this.api.load(this.index + 1, (moreCards) => {
+      this.loading = false;
+      if (moreCards.length > 0) {
+        this.cards = [ ...this.cards, ...moreCards];
+        this.flipped = false;
+        this.index++;
+      }
+      return this.render();
+    });
+  }
+
+  prev = () => {
+    // FOLLOW UP: can we do a loop?
+    if (this.loading || this.index <= 0) {
+      return;
+    } 
+    this.flipped = false;
+    this.index--;
+    return this.render();
+  }
+
+  flip = () => {
+    this.flipped = !this.flipped;
+    return this.render();
+  }
+
+  unmount() {
+    this.cache.save(this.cards);
+  }
+
+  render() {
+    if (this.loading) {
+      this.viewContent.innerHTML = 'loading';
+    } else {
+      const currCard = this.cards[this.index];
+      const viewData = this.flipped ? currCard.answer : currCard.question;
+      this.viewContent.innerHTML = viewData;
+      this.count.innerHTML = this.cards.length;
+    }
+  }
+}
+
+
+// assume we somehow got this server data within the first html load
+const initialCards = [
+  {
+    "question": "### Which JavaScript values don't have properties?",
+    "answer": "Almost all JavaScript values have properties. The exceptions are null and undefined.||<sup>ref: Haverbeke, Marijn (2014-12-04). Eloquent JavaScript: A Modern Introduction to Programming. No Starch Press.</sup>"
+  },
+  {
+    "question": "### What is meant by the statement \"some functions have side effects\"?",
+    "answer": "In computer science, a function or expression is said to have a side effect if, in addition to returning a value, it also modifies some state or has an observable interaction with calling functions or the outside world. For example, a function might modify a global variable or static variable, modify one of its arguments, raise an exception, write data to a display or file, read data, or call other side-effecting functions. In the presence of side effects, a program's behavior may depend on history; that is, the order of evaluation matters. Understanding and debugging a function with side effects requires knowledge about the context and its possible histories.||<sup>ref: [Wikipedia](http://en.wikipedia.org/wiki/Side_effect_%28computer_science%29)</sup>"
+  }
+];
+
+
+// FOLLOWUP: when to init the app?
+$(document).ready(function() {
+  const app = new App(new LocalCache(), new APILayer(REMOTE_DATA_SRC), initialCards);
+  window.addEventListener('beforeunload', () => {
+    app.unmount();
+  })
+})
+
+
+//----------LOCAL CACHE---------
+// FOLLOW: how to do local data cache
+class LocalCache {
+  constructor() {
+    if (!localStorage["flashcards"]) {
+      localStorage["flashcards"] = JSON.stringify({
+        cards: []
+      });
+    }
+  }
+  load() {
+    return JSON.parse(localStorage["flashcards"]).cards;
+  }
+  save(data) {
+    localStorage["flashcards"] = JSON.stringify({
+      cards: data
+    })
+  }
+}
+
+//----------REMOTE DATA LAYER---------
+// FOLLOW UP: mock an api layer which give you next 20 items if exisit
+class APILayer {
+  constructor(src) {
+    this.src = src;
+  }
+  load(startIndex, callback) {
+    // FOLLOW UP: how to avoid unecessary network request
+    $.getJSON(this.src, (res) => {
+      // fake pagination
+      const data = res.cards.slice(startIndex, startIndex + 20);
+      callback(data);
+    });
+  }
+}
+</script>
+</html>
+/* 
+The css test on how to position div in one row
+use relative position for parent and absolute for child
+
+how to center content with text-align
+
+how to customize <a/> into a button, or maybe use a button
+
+can test on web accessibility concern
+*/
+
