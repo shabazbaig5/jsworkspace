@@ -7,23 +7,23 @@ window.onload = () => {
           voucher : ''
         }
       }
-    window.shippingData = {
-        street: {
-          name: 'testName',
-          number: 'testStreetnum',
-        },
-        zipcode: 'testZip',
-        contact: {
-          phone: {
-            area: 'testPhone',
-            exchange: 'testExchange',
-            subscriber: 'testSubs'
-          }
-        }
-      }
+    // window.shippingData = {
+    //     street: {
+    //       name: 'testName',
+    //       number: 'testStreetnum',
+    //     },
+    //     zipcode: 'testZip',
+    //     contact: {
+    //       phone: {
+    //         area: 'testPhone',
+    //         exchange: 'testExchange',
+    //         subscriber: 'testSubs'
+    //       }
+    //     }
+    //   }
 
-    // let serializeData = serialize(document.querySelector('#shipping'));
-    populateForm = populate(shippingData);
+    let serializeData = serialize(document.querySelector('#shipping'));
+    // populateForm = populate(shippingData);
 }
 
 
@@ -48,23 +48,19 @@ differentiate = (dataSet, i) => {
   if(typeof dataSet !== 'object'){
     console.log(dataSet);
     console.log(i);
-    // document.querySelector('#shipping').querySelector('input[type="name"]').value = dataSet;
+
     document.querySelector('#shipping').querySelectorAll('input[type="text"]').forEach((inputField) => {
       if(inputField.getAttribute('name') == i){
         inputField.value = dataSet;
       }
-    })
+    });
     
-    // return i.toString();
   }else{
 
     for(let prop in dataSet){
 
-      // if(typeof dataSet == 'object'){
+      differentiate(dataSet[prop],i+'.'+prop);
 
-        differentiate(dataSet[prop],i+'.'+prop);
-
-      // }
     }
 
   }
@@ -76,14 +72,12 @@ serialize = (form) => {
 
     console.log(form);
     let inputs = form.querySelectorAll('input[type="text"]');
-    // console.log(inputs);
-    console.log(shippingData);
+    // console.log(shippingData);
     let obj = {};
     inputs.forEach((input) => {
 
         console.log(input.name);
-        // shippingData[input.name] = input.value;
-        set(obj, input.name, input.value);
+        settingObjectWithValues(obj, input.name, input.value);
 
     });
 
@@ -95,10 +89,8 @@ serialize = (form) => {
 }
 
 
-set = (obj, key,value) => {
+settingObjectWithValues = (obj, key,value) => {
 
-    // console.log(obj, key, value);
-    // console.log(key);
     let splitKeys = key.split('.');
 
 
