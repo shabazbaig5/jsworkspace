@@ -9,33 +9,37 @@
       <input type="text" name="payment.voucher" />
     </form>
     <form id="shipping" >
-      <input type="text" name="street.name" />
-      <input type="text" name="street.number" />
-      <input type="text" name="zipcode" />
-      <input type="text" name="contact.phone.area" />
-      <input type="text" name="contact.phone.exchange" />
-      <input type="text" name="contact.phone.subscriber" />
+      <input type="text" name="street.name" value="testName"/>
+      <input type="text" name="street.number" value="testStreetnum"/>
+      <input type="text" name="zipcode" value="testZip"/>
+      <input type="text" name="contact.phone.area" value="testPhone"/>
+      <input type="text" name="contact.phone.exchange" value="testExchange"/>
+      <input type="text" name="contact.phone.subscriber" value="testSubs"/>
     </form>
+
+    <!-- <form id="shipping" >
+      <label>Street Name</label>
+      <input type="text" name="street.name" />
+      <label>Street number</label>
+      <input type="text" name="street.number" />
+      <label>zip code</label>
+
+      <input type="text" name="zipcode" />
+      <label>contact phone</label>
+
+      <input type="text" name="contact.phone.area" />
+      <label></label>
+
+      <label>contact phone subscriber</label>
+
+      <input type="text" name="contact.phone.subscriber" />
+    </form> -->
     <script>
-    var extraData = {
-      payment : {
-        voucher : ''
-      }
-    }
-    var shippingData = {
-      street: {
-        name: '',
-        number: '',
-      },
-      zipcode: '',
-      contact: {
-        phone: {
-          area: '',
-          exchange: '',
-          subscriber: ''
-        }
-      }
-    }
+    
+    </script>
+
+    <script src="script/problemsScripts/serialize.js">
+  
     </script>
   </body>
 </html>
