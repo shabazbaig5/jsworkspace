@@ -320,5 +320,23 @@ let createDiv = (address) => {
 
 
 
+Array.prototype.myMap  = function(callback) {
+    
+    // let _this = this;
+    console.log(this);
+    let resultArr = [];
+    for(let i =0; i<this.length; i++){
+        resultArr.push(callback(this[i]));
+    }
+
+    return resultArr;
+}
+
+
+let arr = [1,2,3,4,5];
+let arr2 = arr.myMap((item) => {
+    return item*2;
+});
+console.log(arr2);
 
 
