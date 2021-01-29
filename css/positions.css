@@ -1,0 +1,54 @@
+html, body{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* section{
+    position: relative;
+    border: 1px solid grey;
+    background-color: blueviolet;
+    padding: 10px;
+    margin-top: 30px;
+    width: 70%;
+    margin: auto;
+
+}
+
+section > div{
+    
+    text-align: center;
+    
+}
+
+section > div{
+    background-color: beige;
+}
+section > div:nth-child(2){
+    background-color: aqua;
+}
+
+
+
+.one{
+    position: absolute;
+   
+} */
+
+section{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+    /* grid-template-rows: repeat(auto-fit,minmax(100px,2fr)); */
+    grid-gap: 10px;
+}
+
+section > div:nth-child(even){
+    background-color: black;
+}
+
+section > div:nth-child(odd){
+    background-color: aqua;
+}
+
+.two{
+    /* grid-column: 2/-1; */
+}
