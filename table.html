@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Table Example</title>
+
+    <style>
+    html {
+      font-size: 16px;
+    }
+  
+    header, main {
+      display: block;
+    }
+  
+    .title {
+      font-size: 3.0rem;
+      font-family: Arial, sans-serif;
+      color: #444;
+    }
+  
+    .my-table {
+      border-collapse: collapse;
+      margin: 10px;
+    }
+  
+    .my-table .my-cell, .my-table .my-th {
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Table Example</h1>
+    </header>
+    <main id="table-page" class="page">
+      <table class="my-table" id="table-example">
+        <thead>
+          <tr class="my-table-head">
+            <th class="my-th">Name</th>
+            <th class="my-th">Quantity</th>
+            <th class="my-th">Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr class="my-table-row">
+            <td class="my-cell">Lord of the Rings</td>
+            <td class="my-cell">17</td>
+            <td class="my-cell">____</td>
+          </tr>
+          <tr class="my-table-row">
+            <td class="my-cell">Harry Potter</td>
+            <td class="my-cell">3</td>
+            <td class="my-cell">____</td>
+          </tr>
+          <tr class="my-table-row">
+            <td class="my-cell">100 Cupboards</td>
+            <td class="my-cell">97</td>
+            <td class="my-cell">____</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <script>
+    /* Table object */
+    function Table(options) {
+        this.id = options.id;
+
+        this._init();
+    }
+
+    var proto = Table.prototype;
+
+    /**
+     * Initialize the table object
+     * @private
+     */
+    proto._init = function() {
+        var table = this.table;
+        table = document.getElementById(this.id);
+        this.head = table.querySelectorAll('.my-table-head');
+
+        this.body = table.querySelector('tbody');
+        this.rows = this.body.querySelectorAll('.my-table-row');
+    };
+
+    /**
+     * Insert row method
+     * @param rowElement a DOM node that must have the class 'my-table-row'
+     * @param index an optional index for inserting the row - will default to end of table body if undefined - zero based indexing
+     */
+    proto.insertRow = function(rowElement, index) {
+        if (!rowElement.classList.contains('my-table-row')) {
+            console.error('row must have class my-table-row');
+        }
+
+        // append to end of table
+        if (typeof index === 'undefined') {
+            this.body.appendChild(rowElement);
+        }
+
+        //append to index
+        if (index >= 0) {
+            var insertion = this.body.children[index];
+            this.body.insertBefore(rowElement, insertion);
+        }
+    };
+
+    /**
+     * Helper method for creating a cell
+     */
+    proto.createCell = function(text) {
+        var td = document.createElement('td');
+        var textNode = document.createTextNode(text);
+        td.appendChild(textNode);
+
+        td.className = 'my-cell';
+
+        return td;
+    };
+
+    /**
+     * Helper method for creating a row
+     */
+    proto.createRow = function(cells) {
+        var row = document.createElement('tr');
+        row.className = 'my-table-row';
+
+        cells.forEach(function(cell) {
+            row.appendChild(cell);
+        });
+
+        return row;
+    };
+
+    // example of table API usage
+    var t = new Table({
+        id: 'table-example'
+    });
+
+    var row = t.createRow([
+        t.createCell('The History of the World'),
+        t.createCell(3),
+        t.createCell('____')
+    ]);
+
+    t.insertRow(row);
+
+    var row2 = t.createRow([
+        t.createCell('The Code of the Woosters'),
+        t.createCell(22),
+        t.createCell('____')
+    ]);
+
+    t.insertRow(row2, 2);
+    </script>
+  </body>
+</html>
