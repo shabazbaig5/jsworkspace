@@ -2,7 +2,9 @@ window.onload = () => {
 
     console.log("locked and loaded")
 
-    findStylesOfElement('color', 'black');
+    findStylesOfElement('padding', '15px');
+
+    console.log("Out of the loop");
 }
 
 
@@ -17,20 +19,23 @@ findStylesOfElement = (prop, val) => {
     // })
 
     let matchedElements = [];
-    
+    console.log("property : " + prop + " values : " + val);
+
     for(let i=0; i<elements.length; i++){
 
         // console.log(elements[i]);
         let element = elements[i];
 
-        console.log(element);
+        // console.log(element);
 
+        console.log(getComputedStyle(element)[prop]);
         if(getComputedStyle(element)[prop] == val){
-            window.getComputedStyle.push(element);
+
+            console.log(element);
+            matchedElements.push(element);
         }
 
-        elements.push(element.children);
-    
+        elements.push(...element.children);
 
     }
 
