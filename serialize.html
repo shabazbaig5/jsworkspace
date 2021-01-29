@@ -2,8 +2,47 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <script src="https://kit.fontawesome.com/d92005360f.js" crossorigin="anonymous"></script>
+
     <title>Order form</title>
   </head>
+
+  <style>
+    #likeBtn{
+      padding: 5px;
+      border-radius: 1rem;
+      width: 80px;
+      border: 2px grey solid;
+      background-color: white;
+      color: grey;
+    }
+
+    #likeBtn:hover{
+      border: 2px solid #E11931;
+      color: #E11931;
+      cursor: pointer;
+
+    }
+
+    #likeBtn.selected {
+      color: white;
+      background-color: #E11931;
+      border-color: #E11931;
+    }
+
+  #likeBtn:focus{
+    outline: none;
+  }
+    #likeBtn i{
+      /* color: grey; */
+    }
+    .btnWrapper{
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
   <body>
     <form id="extra" >
       <input type="text" name="payment.voucher" />
@@ -16,6 +55,13 @@
       <input type="text" name="contact.phone.exchange" value="testExchange"/>
       <input type="text" name="contact.phone.subscriber" value="testSubs"/>
     </form>
+
+
+    <div class="btnWrapper">
+      
+      <button type="button" id="likeBtn"><i class="fas fa-heart"></i> Like</button>
+
+    </div>
 
     <!-- <form id="shipping" >
       <label>Street Name</label>
@@ -34,12 +80,27 @@
 
       <input type="text" name="contact.phone.subscriber" />
     </form> -->
-    <script>
-    
-    </script>
-
-    <script src="script/problemsScripts/serialize.js">
-  
-    </script>
+   
   </body>
+
+
+  <script>
+    
+  </script>
+
+  <script src="script/problemsScripts/serialize.js">
+
+  </script>
+
+  <script>
+    document.querySelector('#likeBtn').onclick = (e) => {
+      console.log("checking");
+      e.target.classList.toggle('selected');
+    }
+
+    let formStyles = window.getComputedStyle(document.querySelector('#shipping'))
+    console.log(formStyles.getPropertyValue('flex'));
+
+    console.log(formStyles.getPropertyValue('font'));
+  </script>
 </html>
