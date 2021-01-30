@@ -62,12 +62,13 @@
       </table>
     </main>
 
-    <script>
+    <!-- <script>
     /* Table object */
     function Table(options) {
         this.id = options.id;
 
         this._init();
+        console.log(this);
     }
 
     var proto = Table.prototype;
@@ -78,6 +79,8 @@
      */
     proto._init = function() {
         var table = this.table;
+        console.log(this);
+        console.log(table);
         table = document.getElementById(this.id);
         this.head = table.querySelectorAll('.my-table-head');
 
@@ -102,6 +105,8 @@
 
         //append to index
         if (index >= 0) {
+
+          console.log(this.body.children);
             var insertion = this.body.children[index];
             this.body.insertBefore(rowElement, insertion);
         }
@@ -153,7 +158,11 @@
         t.createCell('____')
     ]);
 
-    t.insertRow(row2, 2);
-    </script>
+    t.insertRow(row2, 1);
+    </script> -->
   </body>
+
+
+  <script src="script/problemsScripts/tableCreation.js"></script>
+
 </html>
