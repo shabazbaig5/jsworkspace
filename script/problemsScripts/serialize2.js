@@ -50,7 +50,7 @@ formObj = (obj, input) => {
         if(!obj.hasOwnProperty(keys[i])){
             obj[keys[i]] = {};
         }
-            if(i+1 == keys.length){
+            if(i == keys.length-1){
                
                 obj[keys[i]] = input.value;
 
