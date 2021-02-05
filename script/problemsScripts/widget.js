@@ -74,9 +74,9 @@ generateStructure = (objectStructure) => {
         console.log(item.type);
 
         // if (item.type === "dir") {
-            // let dirDiv = document.createElement('div');
-            // parentDiv.appendChild(dirDiv);
-            createStruc(item,parentDiv);
+        // let dirDiv = document.createElement('div');
+        // parentDiv.appendChild(dirDiv);
+        createStruc(item, parentDiv);
 
         // }
     })
@@ -85,50 +85,105 @@ generateStructure = (objectStructure) => {
 
 
 createStruc = (item, parentDiv) => {
-    console.log(item);
-    if(item.type === 'dir'){
-        
-        let ul = document.createElement('ul');
-        let span = document.createElement('span');
-        span.innerText = item.name;
-        ul.appendChild(span);
-        parentDiv.appendChild(ul);
-        createStruc(item.contents,ul);
 
+    // console.log(item);
+    
+
+    if(item.type == 'file'){
+        createFileContent(item, parentDiv);
     }else{
-        console.log(item)
 
-        if(item.length > 0){
-            let ul = document.createElement('ul');
-            console.log(item);
-            item.forEach((item) => {
-                let li = document.createElement('li');
-                let liText = document.createTextNode(item.name);
-                li.appendChild(liText);
-                ul.appendChild(li);
-            })
-            parentDiv.appendChild(ul);
-
-            console.log(parentDiv)
-        }else{
-            let ul = document.createElement('ul');
-            console.log(item);
-            // item.forEach((item) => {
-                let li = document.createElement('li');
-                let liText = document.createTextNode(item.name);
-                li.appendChild(liText);
-                ul.appendChild(li);
-                parentDiv.appendChild(ul);
-
-            // })
-        }
-
-        console.log(item);
-        
+        createDirContent(item);
     }
+
+    // // console.log(item);
+    // if (item.type === 'dir') {
+
+    //     let ul = document.createElement('ul');
+    //     let span = document.createElement('span');
+    //     span.innerText = item.name;
+    //     ul.appendChild(span);
+    //     parentDiv.appendChild(ul);
+    //     console.log(item.contents);
+    //     console.log(typeof item);
+    //     if(item.hasOwnProperty('contents')){
+    //         appendFileType(item.contents, ul);
+    //     }
+    //     createStruc(item.contents, ul);
+        
+    // }else {
+
+    //     appendFileType(item,parentDiv);
+
+    // }
 }
 
 
+createDirContent = (dir) => {
+    
+    console.log(dir);
+    let li = document.createElement('li');
+    let span = document.createElement('span');
+    span.innerText = dir.name;
+    parentDiv.appendChild(span);
+    dir.contents.forEach((item) => {
+
+        if(item.type == 'dir'){
+            let ul = document.createElement('ul');
+            let span = document.createElement('span');
+            span.innerText = item.name;
+            ul.appendChild(span);
+            parentDiv.appendChild(ul);
+            item.contents.forEach((item) => {
+                createFileContent(item,ul);
+            })
+        }else{
+            createFileContent(item,parentDiv)
+        }
+    })
+
+}
+
+
+
+createFileContent = (file, parentDiv) => {
+    let li = document.createElement('li');
+    let span = document.createElement('span');
+    span.innerText = file.name;
+    li.appendChild(span);
+    parentDiv.appendChild(li);
+    // return li;
+}
+
+// appendFileType = (item, parentDiv) => {
+//     console.log(item);
+//     if (item.length > 0) {
+//         let ul = document.createElement('ul');
+//         console.log(item);
+//         item.forEach((item) => {
+//             let li = document.createElement('li');
+//             let liText = document.createTextNode(item.name);
+//             li.appendChild(liText);
+//             ul.appendChild(li);
+//         })
+//         parentDiv.appendChild(ul);
+
+//         console.log(parentDiv)
+//     } else {
+//         let ul = document.createElement('ul');
+//         console.log(item);
+
+//         let li = document.createElement('li');
+//         let liText = document.createTextNode(item.name);
+//         li.appendChild(liText);
+//         ul.appendChild(li);
+//         parentDiv.appendChild(ul);
+
+
+//     }
+
+//     console.log(item);
+// }
 
 
 // createStruc = (item, parentDiv) => {
@@ -138,7 +193,7 @@ createStruc = (item, parentDiv) => {
 
 //     item.contents.forEach((item) => {
 //         if (item.type == 'dir') {
-           
+
 //             let span = document.createElement('span');
 //             span.innerText = item.name;
 
