@@ -7,20 +7,20 @@ window.onload = () => {
           voucher : ''
         }
       }
-    // window.shippingData = {
-    //     street: {
-    //       name: 'testName',
-    //       number: 'testStreetnum',
-    //     },
-    //     zipcode: 'testZip',
-    //     contact: {
-    //       phone: {
-    //         area: 'testPhone',
-    //         exchange: 'testExchange',
-    //         subscriber: 'testSubs'
-    //       }
-    //     }
-    //   }
+    window.shippingData = {
+        street: {
+          name: 'testName',
+          number: 'testStreetnum',
+        },
+        zipcode: 'testZip',
+        contact: {
+          phone: {
+            area: 'testPhone',
+            exchange: 'testExchange',
+            subscriber: 'testSubs'
+          }
+        }
+      }
 
     let serializeData = serialize(document.querySelector('#shipping'));
     // populateForm = populate(shippingData);
