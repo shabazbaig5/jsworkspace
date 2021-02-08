@@ -1,55 +1,55 @@
-window.onload = () => {
-    console.log("locked and loaded");
+// window.onload = () => {
+//     console.log("locked and loaded");
 
-    const tree = {
-        children: [
-            {children: ['a'], value: 'div'},
-            {children: ['b'], value: 'div'}
-        ],
-        value: 'div'
-    }
+//     const tree = {
+//         children: [
+//             { children: ['a'], value: 'div' },
+//             { children: ['b'], value: 'div' }
+//         ],
+//         value: 'div'
+//     }
 
-    console.log(tree);
+//     // console.log(tree);
 
-    // createNode(tree);
+//     // createNode(tree);
 
-    parseRecursiveTree(tree);
-}
-
-
-createNode = (node) => {
-
-    console.log(node);
-    console.log(`<${node.value}>`);
-    node.children.forEach(child => {
-        
-        console.log(`<${child.value}>`);
-            child.children.forEach((children) => {
-                console.log(children);
-            })
-        console.log(`</${child.value}>`);
-        
-    });
-    console.log(`</${node.value}>`);
+//     parseRecursiveTree(tree);
+// }
 
 
-}
+// createNode = (node) => {
 
-parseRecursiveTree = (node) => {
+//     console.log(node);
+//     console.log(`<${node.value}>`);
+//     node.children.forEach(child => {
 
-    if(!node.children){
-        console.log(node);
-    }else{
-        console.log(`<${node.value}>`);
+//         console.log(`<${child.value}>`);
+//         child.children.forEach((children) => {
+//             console.log(children);
+//         })
+//         console.log(`</${child.value}>`);
 
-        node.children.forEach((child) =>{
-            parseRecursiveTree(child)
-        });
+//     });
+//     console.log(`</${node.value}>`);
 
-        console.log(`</${node.value}>`)
-    }
 
-}
+// }
+
+// parseRecursiveTree = (node) => {
+
+//     if (!node.children) {
+//         console.log(node);
+//     } else {
+//         console.log(`<${node.value}>`);
+
+//         node.children.forEach((child) => {
+//             parseRecursiveTree(child)
+//         });
+
+//         console.log(`</${node.value}>`)
+//     }
+
+// }
 
 const htmlString = `<div>
 <div>
@@ -60,34 +60,51 @@ b
 </div>
 </div>`;
 
+    const tree = {
+        children: [
+            { children: ['a'], value: 'div' },
+            { children: ['b'], value: 'div' }
+        ],
+        value: 'div'
+    }
+
+    console.log(tree);
 stringToTree = (str) => {
 
     let treeArr = str.split('\n');
     let stack = [];
+    let objArr = [];
     let obj = {
-        
+        children:[]
     };
-    for(let i = 0; i<treeArr.length; i++){
+    for (let i = 0; i < treeArr.length; i++) {
 
-        if(treeArr[i] !== "</div>"){
+        if (treeArr[i] !== "</div>") {
+
             stack.push(treeArr[i]);
-         }else{
-            let children = [];
 
-           for(let j = stack.length-1; stack[j] != '<div>'; j--){
-            console.log(stack[j]);
-               if(stack[j] != '<div>'){
-                   children.push(stack[j]);
-               }
-               obj.value = 'div';
-           }
-           obj.children = children;
-        //    obj.value = value;
-           
+        } else {
+
+            while(stack[stack.length-1]!= '<div>' && stack.length > 0){
+
+                let childObj = {
+                    children : []
+                };
+                childObj.children.push(stack.pop());
+                childObj.value = stack.pop();
+                obj.children.push(childObj);
+                
+            }
+            
+            console.log(stack);
+            
+
+
         }
     }
+
+    obj.value = stack.pop();
     console.log(stack);
-    // console.log(treeArr);
     console.log(obj);
 }
 
