@@ -84,7 +84,7 @@ serialize = (form) => {
     console.log("final object  : ")
     console.log(obj);
 
-    console.log(JSON.stringify(obj));
+    console.log(JSON.stringify(obj)); 
     // console.log(shippingData)
 }
 
@@ -98,7 +98,7 @@ settingObjectWithValues = (obj, key,value) => {
 
     
         if(!obj.hasOwnProperty(splitKeys[i])){
-            obj[splitKeys[i]] = {}
+            obj[splitKeys[i]] = {};
         }
         if(i+1 == splitKeys.length){
             obj[splitKeys[i]] = value;
