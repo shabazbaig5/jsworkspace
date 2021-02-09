@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://kit.fontawesome.com/d92005360f.js" crossorigin="anonymous"></script>
 
-    <style type="text/css">
-        /* html {
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/d92005360f.js" crossorigin="anonymous"></script>
+
+  <style type="text/css">
+    /* html {
           box-sizing: border-box;
         }
       
@@ -59,31 +60,68 @@
         }
       
         .star-link {
+          
           height: 100%;
           position: absolute;
           width: 100%;
         } */
 
-            .starsList > li{
-                display: inline-block;
-                /* padding: 10px; */
-                margin: 5px;
-                font-size: larger;
-            }
-        </style>
-</head>
-<body>
+    .stars {
+      margin: 0;
+      padding: 0;
+      width: 250px;
+      position: relative;
+    }
+
+
+    .star {
+      text-decoration: none;
+      color: black;
+      display: inline-block;
+      margin: 5px;
+      font-size: larger;
+    }
+
+    .star::after {
+      content: '☆';
+    }
+
+    .star:hover::after,
+    .stars:hover .star::after {
+      content: '★';
+    }
+
     
-    <!-- <ol class="stars">
-        <li class="star" aria-label="1" data-rating="1"><a href="/rate/1" class="star-link"></a></li>
-        <li class="star" aria-label="2" data-rating="2"><a href="/rate/2" class="star-link"></a></li>
-        <li class="star" aria-label="3" data-rating="3"><a href="/rate/3" class="star-link"></a></li>
-        <li class="star" aria-label="4" data-rating="4"><a href="/rate/4" class="star-link"></a></li>
-        <li class="star" aria-label="5" data-rating="5"><a href="/rate/5" class="star-link"></a></li>
-      </ol> -->
+    .star:hover, .star {
+      color: orange;
+    }
+
+    .star:hover~.star::after {
+      content: '☆';
+      color: black;
+    }
+
+    .star-link {
+
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <ol class="stars">
+    <li class="star" aria-label="1" data-rating="1"><a href="/rate/1" class="star-link"></a></li>
+    <li class="star" aria-label="2" data-rating="2"><a href="/rate/2" class="star-link"></a></li>
+    <li class="star" aria-label="3" data-rating="3"><a href="/rate/3" class="star-link"></a></li>
+    <li class="star" aria-label="4" data-rating="4"><a href="/rate/4" class="star-link"></a></li>
+    <li class="star" aria-label="5" data-rating="5"><a href="/rate/5" class="star-link"></a></li>
+  </ol>
 
 
-    <ol class="starsList">
+  <!-- <ol class="starsList">
 
         <li class="star" data-rating="1">
             <i class="far fa-star"></i>
@@ -101,23 +139,24 @@
             <i class="far fa-star"></i>
         </li>
 
-    </ol>
+    </ol> -->
 </body>
 
 
 <script>
 
-    let starsList = document.querySelectorAll('li i');
+  let starsList = document.querySelectorAll('li i');
 
-    starsList.forEach((list) => {
-        list.addEventListener('click', (e) => {
-            handleClick(e);
-        });
+  starsList.forEach((list) => {
+    list.addEventListener('click', (e) => {
+      handleClick(e);
     });
+  });
 
 
- handleClick = (e) => {
+  handleClick = (e) => {
     console.log(e.target);
- }
+  }
 </script>
+
 </html>
