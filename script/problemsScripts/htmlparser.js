@@ -17,6 +17,9 @@ window.onload = () => {
             }, {
                 children: ["c"],
                 value: "div"
+            },{
+                children: ["d"],
+                value: "div"
             }],
             value: "div"
         },
@@ -41,8 +44,46 @@ window.onload = () => {
 
     // createNode(tree);
 
-    parseRecursiveTree(test);
+    parsingTwo(test);
 }
+
+
+
+parsingTwo = (node) => {
+
+    if(node.children){
+
+        console.log("<div>");
+
+        node.children.forEach((child) => {
+            parsingTwo(child);
+        });
+        console.log('</div>');
+
+    }else{
+        console.log(node);
+        
+    }
+
+}
+
+
+parseRecursiveTree = (node) => {
+
+    if (!node.children) {
+        console.log(node);
+    } else {
+        console.log(`<${node.value}>`);
+
+        node.children.forEach((child) => {
+            parseRecursiveTree(child)
+        });
+
+        console.log(`</${node.value}>`)
+    }
+
+}
+
 
 
 createNode = (node) => {
@@ -63,21 +104,7 @@ createNode = (node) => {
 
 }
 
-parseRecursiveTree = (node) => {
 
-    if (!node.children) {
-        console.log(node);
-    } else {
-        console.log(`<${node.value}>`);
-
-        node.children.forEach((child) => {
-            parseRecursiveTree(child)
-        });
-
-        console.log(`</${node.value}>`)
-    }
-
-}
 
 const htmlString = `<div>
 <div>
@@ -157,7 +184,7 @@ function fromStringToTree(html) {
       if (token === '</div>') {
          const children = []
          while (stack[stack.length - 1] !== '<div>') { // peek
-           children.unshift(stack.pop()) // keep the order with unshift
+           children.push(stack.pop()) // keep the order with unshift
          }
          stack.pop() // remove last <div>
          stack.push({
@@ -174,7 +201,7 @@ function fromStringToTree(html) {
     })
 
     console.log(stack[0]);
-    return stack.pop()
+    return stack.pop();
   }
 
   console.log(fromStringToTree(html));

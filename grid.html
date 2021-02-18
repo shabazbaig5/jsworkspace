@@ -87,4 +87,43 @@
 </body>
 <script src="./script/problemsScripts/pagination.js"></script>
 
+
+<script>
+    let nestedObj = {
+        id: 1,
+        children:{
+            id: 'sub1',
+            children:{
+                id: 'subofsub',
+                child: [1,2,3,4,5]
+            }
+        }
+    }
+
+    console.log(nestedObj);
+
+    function loopThrough(nestedObj){
+        for(let prop in nestedObj){
+
+            console.log(nestedObj[prop].length);
+
+            if(typeof nestedObj[prop] == 'object'){
+
+                loopThrough(nestedObj[prop]);
+            }else{
+                console.log(nestedObj[prop]);
+            }
+        
+            // if(Object.keys(nestedObj[prop]).length == 0){
+            //     console.log(Object.keys(nestedObj[prop]).length);
+            //     console.log(nestedObj[prop]);
+            // }else{
+            //     // loopThrough(nestedObj[prop]);
+            // }
+        }
+    }
+
+    loopThrough(nestedObj);
+    
+</script>
 </html>

@@ -16,8 +16,8 @@ window.onload = () => {
         }
       }
 
-    // serialize(document.querySelector('#shipping'));
-    populateTable(shippingData);
+    serialize(document.querySelector('#shipping'));
+    // populateTable(shippingData);
 }
 
 
@@ -57,46 +57,46 @@ formProp = (obj,prop) => {
 
 }
 
-// serialize = (form) =>{
+serialize = (form) =>{
 
-//     let inputs = form.querySelectorAll('input[type="text"]');
-//     console.log(inputs);
-//     // let keys = [...inputs].map((input) => {
-//     //     return input.name;
-//     // });
+    let inputs = form.querySelectorAll('input[type="text"]');
+    console.log(inputs);
+    // let keys = [...inputs].map((input) => {
+    //     return input.name;
+    // });
 
-//     // console.log(keys);
+    // console.log(keys);
 
-//     let obj = {};
-//     inputs.forEach((input) => {
-//         formObj(obj,input);
-//     });
+    let obj = {};
+    inputs.forEach((input) => {
+        formObj(obj,input);
+    });
 
-//     console.log(obj)
-// }
+    console.log(obj)
+}
 
 
 
-// formObj = (obj, input) => {
+formObj = (obj, input) => {
 
-//     console.log(input);
-//     let keys = input.name.split('.');
+    console.log(input);
+    let keys = input.name.split('.');
 
-//     for(let i = 0; i<keys.length; i++){
+    for(let i = 0; i<keys.length; i++){
 
-//         if(!obj.hasOwnProperty(keys[i])){
-//             obj[keys[i]] = {};
-//         }
-//             if(i == keys.length-1){
+        if(!obj.hasOwnProperty(keys[i])){
+            obj[keys[i]] = {};
+        }
+            if(i == keys.length-1){
                
-//                 obj[keys[i]] = input.value;
+                obj[keys[i]] = input.value;
 
-//             }else{
-//                 obj = obj[keys[i]];
-//             }
+            }else{
+                obj = obj[keys[i]];
+            }
         
-//     }
+    }
   
-// }
+}
 
 

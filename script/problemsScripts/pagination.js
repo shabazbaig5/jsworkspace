@@ -344,9 +344,73 @@ console.log(arr2);
 function init() {
     let name = 'Mozilla'; // name is a local variable created by init
     function displayName() { // displayName() is the inner function, a closure
-      alert(name); // use variable declared in the parent function
+    //   alert(name); // use variable declared in the parent function
     }
     displayName();
   }
   init();
 
+
+
+  function test(){
+      console.log(this.name);
+      console.log(this);
+  }
+  let obj = {
+      name : "shahabaz",
+      fun : function(){
+          console.log(this);
+          console.log(this.name);
+      }
+  }
+
+  obj.fun();
+
+  let otherObj  = {
+      name: "Baig"
+  }
+
+// obj.fun.call(otherObj);
+
+
+
+test();
+
+// test.call(otherObj);
+let test2 = test.bind(otherObj);
+console.log("using bind");
+test2();
+// console.log(test.bind(otherObj));
+console.log("applying");
+test.apply(otherObj);
+
+
+
+function A(){
+
+    this.legs = 4;
+}
+
+function B(){
+    this.legs = 4;
+}
+
+
+function C(){}
+
+C.prototype.print = function(){
+    console.log(this);
+    console.log("walking");
+}
+
+let c = Object.create(C.prototype);
+
+console.log("printing c");
+c.print();
+
+A.prototype = Object.create(C.prototype);
+
+console.log("priting using a");
+let a = new A();
+console.log(a.legs);
+a.print()
