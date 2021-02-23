@@ -85,45 +85,110 @@
 
     
 </body>
-<script src="./script/problemsScripts/pagination.js"></script>
+<!-- <script src="./script/problemsScripts/pagination.js"></script> -->
 
 
 <script>
-    let nestedObj = {
-        id: 1,
-        children:{
-            id: 'sub1',
-            children:{
-                id: 'subofsub',
-                child: [1,2,3,4,5]
-            }
-        }
-    }
+    // let nestedObj = {
+    //     id: 1,
+    //     children:{
+    //         id: 'sub1',
+    //         children:{
+    //             id: 'subofsub',
+    //             child: [1,2,3,4,5]
+    //         }
+    //     }
+    // }
 
-    console.log(nestedObj);
+    // console.log(nestedObj);
 
-    function loopThrough(nestedObj){
-        for(let prop in nestedObj){
+    // function loopThrough(nestedObj){
+    //     for(let prop in nestedObj){
 
-            console.log(nestedObj[prop].length);
+    //         console.log(nestedObj[prop].length);
 
-            if(typeof nestedObj[prop] == 'object'){
+    //         if(typeof nestedObj[prop] == 'object'){
 
-                loopThrough(nestedObj[prop]);
-            }else{
-                console.log(nestedObj[prop]);
-            }
+    //             loopThrough(nestedObj[prop]);
+    //         }else{
+    //             console.log(nestedObj[prop]);
+    //         }
         
-            // if(Object.keys(nestedObj[prop]).length == 0){
-            //     console.log(Object.keys(nestedObj[prop]).length);
-            //     console.log(nestedObj[prop]);
-            // }else{
-            //     // loopThrough(nestedObj[prop]);
-            // }
+    //         // if(Object.keys(nestedObj[prop]).length == 0){
+    //         //     console.log(Object.keys(nestedObj[prop]).length);
+    //         //     console.log(nestedObj[prop]);
+    //         // }else{
+    //         //     // loopThrough(nestedObj[prop]);
+    //         // }
+    //     }
+    // }
+
+    // loopThrough(nestedObj);
+    
+
+    let arrTest = [1,[2,[3,4,[5,[6,7,8]]]]];
+    let arr1 = [];
+
+
+    flattenArray = (item) => {
+        if(item.length == undefined){
+            arr1.push(item)
+        }else{
+            item.forEach((item) => {
+                flattenArray(item);
+            })
+        }
+    }
+    arrTest.forEach((item) => {
+
+        flattenArray(item);
+        // if(typeof item === "object"){
+        //     arr1.push(...item);
+        // }else{
+        //     arr1.push(item);
+        // }
+    });
+
+
+    let testObj = {
+                    a: {
+                        b: {
+                            c: 5
+                        }
+                    },
+                    d:{
+                        e:1,
+                        f:{
+                            g:1,
+                            h:1
+                        }
+                    }
+    }
+
+    let objTest = {};
+    formatObj = (obj,key,value) => {
+
+        if(typeof obj === "object"){
+            for(let prop in obj){
+                formatObj(obj[prop], key+'.'+prop, obj[prop]);
+            }
+        }else{
+            objTest[key] = obj[key];
         }
     }
 
-    loopThrough(nestedObj);
+    for(let prop in testObj){
+
+        // if(typeof testObj[prop]){
+            console.log('first loop');  
+
+        formatObj(testObj[prop], prop, testObj[prop])
+    }
     
+
+    console.log(objTest)
+  
+    console.log(arrTest);
+    console.log(arr1);  
 </script>
 </html>
