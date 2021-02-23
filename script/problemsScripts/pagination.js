@@ -309,6 +309,8 @@ let createAddressDiv = (addresses) => {
 
 let createDiv = (address) => {
     let div = document.createElement('div');
+
+    div.style.border = "1px solid black";
     let p = document.createElement('p');
     let pText = document.createTextNode(address.id);
 
