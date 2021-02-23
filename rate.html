@@ -121,6 +121,17 @@
   </ol>
 
 
+
+  <div>
+    <label>
+      <input type="radio" name='test' value="yes"> yes
+    </label>
+
+    <label>
+      <input type="radio" name='test' value="no"> no
+
+    </label>
+  </div>
   <!-- <ol class="starsList">
 
         <li class="star" data-rating="1">
@@ -145,6 +156,11 @@
 
 <script>
 
+
+
+
+
+console.log(document.querySelectorAll('input[name="test"]'));
   let starsList = document.querySelectorAll('li i');
 
   starsList.forEach((list) => {
@@ -158,6 +174,49 @@
     e.preventDefault();
     console.log(e.target);
   }
+
+
+  let start1 = 1, start2 = 1;
+  let next = 0;
+  let arr = [1,1];
+  for(let i = 0; i<10; i++){
+
+    // console.log(start1+start2)
+    next = start1 + start2;
+    // console.log(next);
+
+    arr.push(next);
+    start1 = start2;
+    start2 = next;
+
+  }
+
+  const count_duplicate_characters = function(str) {
+    
+    var arr = {}
+
+    for (let i = 0; i < str.length; i++) {
+
+      // console.log(str[i]);
+        if (Object.keys(arr).includes(str[i])) {
+
+            arr[str[i]] = arr[str[i]] + 1;
+            // continue
+        }else{
+
+          arr[str[i]] = 1
+
+        }
+        
+    }
+    return arr
+    
+}
+
+
+console.log(count_duplicate_characters('adsjfdsfsfjsdjfhacabcsbajda'));
+
+  // console.log(arr);
 </script>
 
 </html>
