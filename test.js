@@ -5,10 +5,7 @@ const mysql = require('mysql')
 const S3 = new AWS.S3();
 
 var pool = mysql.createPool({
-  host: "jdbc:mysql://mysqlpipdb.cob2atfvib8y.us-east-1.rds.amazonaws.com",
-  user: "redbuttonuser",
-  password: "fjgjwk1$",
-  database: "redbutton"
+ 
 });
 
 
