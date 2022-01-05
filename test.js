@@ -21,7 +21,7 @@ const params = {
 exports.handler = async (event, context) => {
     try {
         const query = "SELECT * FROM s3object s WHERE s.id > '0'";
-        const bucket = 'bmmshaha';
+        const bucket = '';
         const key = 'test.csv';
 
         
